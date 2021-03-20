@@ -56,7 +56,3 @@ function findWord() {
     }
 }
 
-/* ---------LOADİNG------------ */
-$(window).load(function() {
-    $(".se-pre-con").fadeOut("slow");;
-});
