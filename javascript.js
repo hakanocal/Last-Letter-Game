@@ -10,8 +10,6 @@ function bodyOnLoad(){
     document.getElementById('insertedWordList').innerHTML += "take" + "\n"; 
     document.getElementById('insertedWordList').innerHTML += "takew" + "\n"; 
     document.getElementById('insertedWordList').innerHTML += "take" + "\n"; 
-    
-
 }
 // enter tuşuna tıklandığında send butonunu çalıştır
 var inputKey = document.getElementById("ListenKey");
@@ -58,7 +56,8 @@ function findWord() {
 	finded = document.getElementById('insWord').value
     var word		=	words.find(checkWord);
     if (word == finded){
-            document.getElementById('insertedWordList').innerHTML += finded + "\n"
+            document.getElementById('insertedWordList').innerHTML += finded + "\n";
+            document.getElementById('insWord').innerHTML = "";
         }
         else {
             alert('bulunamadı')
