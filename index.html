@@ -35,14 +35,6 @@
             right: 0; 
             margin: auto; 
         } 
-        #content{
-            position: fixed;
-            left: 0px;
-            top: 0px;
-            width: 100%;
-            height: 100%;
-            z-index: 9999;
-        }
     </style>
     <!-- JAVASCRIPT -->
     <script> 
@@ -50,20 +42,17 @@
             if (document.readyState !== "complete") { 
                 document.querySelector("#ListenKey").style.visibility = "hidden"; 
                 document.querySelector("#loader").style.visibility = "visible"; 
-                document.querySelector("#content").style.color = ""; 
 
             } 
             else { 
                 document.querySelector("#loader").style.display = "none"; 
                 document.querySelector("#ListenKey").style.visibility = "visible"; 
-                document.querySelector("#content").style.color = "red"; 
             } 
         }; 
     </script> 
 
 </head>
 <body id="ListenKey" onload="bodyOnLoad()">
-    <div id="content"></div>
     <!-- loading -->
     <div id="loader" class="center"></div> 
     <!-- Girilen kelimeler listesi -->
