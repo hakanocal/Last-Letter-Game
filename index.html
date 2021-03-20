@@ -35,22 +35,22 @@
             right: 0; 
             margin: auto; 
         } 
-        #content{
+        #ListenKey{
             width: 100%;
             height: 100%;
-            background-color: red;
+            background-color: blue;
         }
     </style>
     <!-- JAVASCRIPT -->
     <script> 
         document.onreadystatechange = function() { 
             if (document.readyState !== "complete") { 
-                document.querySelector("#content").style.visibility = "hidden"; 
+                document.querySelector("#ListenKey").style.visibility = "hidden"; 
                 document.querySelector("#loader").style.visibility = "visible"; 
             } 
             else { 
                 document.querySelector("#loader").style.display = "none"; 
-                document.querySelector("#content").style.visibility = "visible"; 
+                document.querySelector("#ListenKey").style.visibility = "visible"; 
             } 
         }; 
     </script> 
