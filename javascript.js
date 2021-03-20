@@ -58,5 +58,5 @@ function findWord() {
 
 /* ---------LOADİNG------------ */
 $(window).load(function() {
-    $('#loading').hide();
-  });
+    $(".se-pre-con").fadeOut("slow");;
+});
