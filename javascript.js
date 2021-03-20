@@ -1,16 +1,4 @@
-// başlangıçta rastgele kelime ile oyuna başla
-function bodyOnLoad(){
-    document.getElementById('insertedWordList').innerHTML += "take" + "\n"; 
-    document.getElementById('insertedWordList').innerHTML += "take" + "\n"; 
-    document.getElementById('insertedWordList').innerHTML += "take" + "\n"; 
-    document.getElementById('insertedWordList').innerHTML += "tawke" + "\n"; 
-    document.getElementById('insertedWordList').innerHTML += "take" + "\n"; 
-    document.getElementById('insertedWordList').innerHTML += "take" + "\n"; 
-    document.getElementById('insertedWordList').innerHTML += "take" + "\n"; 
-    document.getElementById('insertedWordList').innerHTML += "take" + "\n"; 
-    document.getElementById('insertedWordList').innerHTML += "takew" + "\n"; 
-    document.getElementById('insertedWordList').innerHTML += "take" + "\n"; 
-}
+
 // enter tuşuna tıklandığında send butonunu çalıştır
 var inputKey = document.getElementById("ListenKey");
 inputKey.addEventListener("keyup", function(event) {
@@ -43,8 +31,14 @@ function readTextFile(file)
     rawFile.send(null);
 }
 readTextFile("words_alpha.txt");
-
+var randomWordIndexForPageLoad	=	Math.round(Math.random()*(wordArray.length-1));
+var randomWordForPageLoad = wordArray[randomWordIndexForPageLoad];
 /* ------------------- */
+// başlangıçta rastgele kelime ile oyuna başla
+function bodyOnLoad(){
+    document.getElementById('insertedWordList').innerHTML += randomWordForPageLoad + "\n"; 
+}
+/* -------------------- */
 var finded; 
 function checkWord(eleman, sira, referans){
 	return eleman == finded;
