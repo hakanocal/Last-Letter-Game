@@ -14,6 +14,9 @@
     </style>
 </head>
 <body id="ListenKey" onload="bodyOnLoad()">
+    <div id="loading">
+        <img id="loading-image" src="images/loading.gif" alt="Loading..." />
+    </div>
     <!-- Girilen kelimeler listesi -->
     <textarea name="textarea" id="insertedWordList" cols="20" rows="20" style=" text-align:right; width:400px; resize:none" disabled></textarea><br>
     <!-- Metin giriniz -->
@@ -21,13 +24,11 @@
     <!-- Gönder butonu -->
     <input id="sendWord" type="button" value="Send (Enter)" onclick="findWord()">
 
-    <div id="loading">
-        <img id="loading-image" src="images/loading.gif" alt="Loading..." />
-    </div>
+    
 
 
     <!-- JAVASCRIPT -->
     <script type="text/javascript" src="javascript.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
 </body>
 </html>
