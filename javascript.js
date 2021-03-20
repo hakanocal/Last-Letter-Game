@@ -43,8 +43,6 @@ function readTextFile(file)
     rawFile.send(null);
 }
 readTextFile("words_alpha.txt");
-document.getElementById("result").innerHTML += wordArray;
-
 
 /* ------------------- */
 var finded; 
