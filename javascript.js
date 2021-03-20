@@ -58,9 +58,10 @@ function findWord() {
     if (word == finded){
             document.getElementById('insertedWordList').innerHTML += finded + "\n";
             document.getElementById('insWord').value = "";
+            insertedWordList.scrollTo(0,document.querySelector("#insertedWordList").scrollHeight);
         }
         else {
             alert('bulunamadı')
     }
 }
-window.scrollTo(0,document.querySelector("#insertedWordList").scrollHeight);
+
