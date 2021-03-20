@@ -60,8 +60,8 @@ function findWord() {
             document.getElementById('insWord').value = "";
             insertedWordList.scrollTo(0,document.querySelector("#insertedWordList").scrollHeight);
         }
-        else {
-            alert('bulunamadı')
+    else {
+        alert('bulunamadı')
     }
 }
 
