@@ -1,5 +1,5 @@
 
-// enter tuşuna tıklandığında send butonunu çalıştır
+/* ------ enter tuşuna tıklandığında send butonunu çalıştır -----*/
 var inputKey = document.getElementById("ListenKey");
 inputKey.addEventListener("keyup", function(event) {
     if (event.keyCode === 13) {
@@ -8,7 +8,7 @@ inputKey.addEventListener("keyup", function(event) {
     }
 });
 
-//
+/* ------------DOSYADA BULUNAN KELİMELERİ LİSTEYE AKTAR--------------  */
 var wordArray = []
 function readTextFile(file)
 {
@@ -33,12 +33,11 @@ function readTextFile(file)
 readTextFile("words_alpha.txt");
 var randomWordIndexForPageLoad	=	Math.round(Math.random()*(wordArray.length-1));
 var randomWordForPageLoad = wordArray[randomWordIndexForPageLoad];
-/* ------------------- */
-// başlangıçta rastgele kelime ile oyuna başla
+/* --------başlangıçta rastgele kelime ile oyuna başla----------- */
 function bodyOnLoad(){
     document.getElementById('insertedWordList').innerHTML += randomWordForPageLoad + "\n"; 
 }
-/* -------------------- */
+/* --------GİRİLEN KELİMEYİ ARA------------ */
 var finded; 
 function checkWord(eleman, sira, referans){
 	return eleman == finded;
@@ -57,3 +56,7 @@ function findWord() {
     }
 }
 
+/* ---------LOADİNG------------ */
+$(window).load(function() {
+    $('#loading').hide();
+  });
