@@ -10,22 +10,7 @@ function bodyOnLoad(){
     document.getElementById('insertedWordList').innerHTML += "take" + "\n"; 
     document.getElementById('insertedWordList').innerHTML += "takew" + "\n"; 
     document.getElementById('insertedWordList').innerHTML += "take" + "\n"; 
-    document.getElementById('insertedWordList').innerHTML += "take" + "\n"; 
-    document.getElementById('insertedWordList').innerHTML += "take" + "\n"; 
-    document.getElementById('insertedWordList').innerHTML += "takwe" + "\n"; 
-    document.getElementById('insertedWordList').innerHTML += "take" + "\n"; 
-    document.getElementById('insertedWordList').innerHTML += "take" + "\n"; 
-    document.getElementById('insertedWordList').innerHTML += "take" + "\n"; 
-    document.getElementById('insertedWordList').innerHTML += "take" + "\n"; 
-    document.getElementById('insertedWordList').innerHTML += "takew" + "\n"; 
-    document.getElementById('insertedWordList').innerHTML += "take" + "\n"; 
-    document.getElementById('insertedWordList').innerHTML += "take" + "\n"; 
-    document.getElementById('insertedWordList').innerHTML += "tawke" + "\n"; 
-    document.getElementById('insertedWordList').innerHTML += "take" + "\n"; 
-    document.getElementById('insertedWordList').innerHTML += "take" + "\n"; 
-    document.getElementById('insertedWordList').innerHTML += "take" + "\n"; 
-    document.getElementById('insertedWordList').innerHTML += "take" + "\n"; 
-    document.getElementById('insertedWordList').innerHTML += "take" + "\n"; 
+    
 
 }
 // enter tuşuna tıklandığında send butonunu çalıştır
