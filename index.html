@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Last Letter Gamee</title>
+    <title>Last Letter Game</title>
     <link rel="icon" href="images/abc.png" type="image/x-icon" />
     <style>
         #insertedWordList::-webkit-scrollbar { width: 0 !important }
@@ -20,7 +20,6 @@
             width: 70px; 
             height: 70px; 
             animation: spin 1s linear infinite; 
-            background-color:red;
         } 
           
         @keyframes spin { 
@@ -29,7 +28,6 @@
             } 
         } 
         .center { 
-            background-color:blue;
             position: absolute; 
             top: 0; 
             bottom: 0; 
@@ -59,14 +57,14 @@
         document.onreadystatechange = function() { 
             if (document.readyState !== "complete") { 
                 document.querySelector( 
-                  "body").style.visibility = "hidden"; 
+                  "#body").style.visibility = "hidden"; 
                 document.querySelector( 
                   "#loader").style.visibility = "visible"; 
             } else { 
                 document.querySelector( 
                   "#loader").style.display = "none"; 
                 document.querySelector( 
-                  "body").style.visibility = "visible"; 
+                  "#body").style.visibility = "visible"; 
             } 
         }; 
     </script> 
