@@ -57,7 +57,7 @@ function findWord() {
     var word		=	words.find(checkWord);
     if (word == finded){
             document.getElementById('insertedWordList').innerHTML += finded + "\n";
-            document.getElementById('insWord').innerHTML = "";
+            document.getElementById('insWord').value = "";
         }
         else {
             alert('bulunamadı')
