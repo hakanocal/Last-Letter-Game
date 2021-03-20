@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Last letter game</title>
+</head>
+<body id="ListenKey" onload="bodyOnLoad()">
+    <!-- Girilen kelimeler listesi -->
+    <textarea name="textarea" id="insertedWordList" cols="20" rows="20" style=" text-align:right; width:400px; overflow-x:hidden; overflow-y:hidden" disabled></textarea><br>
+    <!-- Metin giriniz -->
+    <input id="insWord" type="text" style="width: 400px; text-align:right"> 
+    <!-- Gönder butonu -->
+    <input id="sendWord" type="button" value="Send (Enter)" onclick="findWord()">
+
+    <input type="button" onClick="Javascript: displayClassList();" value="Display Class List" />
+    <div id="result"></div>
+
+
+
+    <!-- JAVASCRIPT -->
+    <script type="text/javascript" src="javascript.js"></script>
+</body>
+</html>
