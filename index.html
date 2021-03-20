@@ -35,9 +35,9 @@
             right: 0; 
             margin: auto; 
         } 
-        #ListenKey{
+        #content{
             width: 100%;
-            height: 100%;
+            height: 100vh;
             background-color: blue;
         }
     </style>
@@ -60,13 +60,14 @@
     
     <!-- loading -->
     <div id="loader" class="center"></div> 
+    <!-- Girilen kelimeler listesi -->
+    <textarea name="textarea" id="insertedWordList" cols="20" rows="20" style=" text-align:right; width:400px; resize:none" disabled></textarea><br>
+    <!-- Metin giriniz -->
+    <input id="insWord" type="text" autocomplete="off" style="width: 400px; text-align:right"> 
+    <!-- Gönder butonu -->
+    <input id="sendWord" type="button" value="Send (Enter)" onclick="findWord()">
     <div id="content">
-        <!-- Girilen kelimeler listesi -->
-        <textarea name="textarea" id="insertedWordList" cols="20" rows="20" style=" text-align:right; width:400px; resize:none" disabled></textarea><br>
-        <!-- Metin giriniz -->
-        <input id="insWord" type="text" autocomplete="off" style="width: 400px; text-align:right"> 
-        <!-- Gönder butonu -->
-        <input id="sendWord" type="button" value="Send (Enter)" onclick="findWord()">
+        
     </div>
 
     <!-- JAVASCRIPT -->
