@@ -44,6 +44,19 @@
 
 </head>
 <body id="ListenKey" onload="bodyOnLoad()">
+    <!-- JAVASCRIPT -->
+    <script> 
+        document.onreadystatechange = function() { 
+            if (document.readyState !== "complete") { 
+                document.querySelector("#content").style.visibility = "hidden"; 
+                document.querySelector("#loader").style.visibility = "visible"; 
+            } 
+            else { 
+                document.querySelector("#loader").style.display = "none"; 
+                document.querySelector("#content").style.visibility = "visible"; 
+            } 
+        }; 
+    </script> 
     <!-- loading -->
     <div id="loader" class="center"></div> 
     <div id="content">
@@ -57,17 +70,5 @@
 
     <!-- JAVASCRIPT -->
     <script type="text/javascript" src="javascript.js"></script>
-    <script> 
-        document.onreadystatechange = function() { 
-            if (document.readyState !== "complete") { 
-                document.querySelector("#content").style.visibility = "hidden"; 
-                document.querySelector("#loader").style.visibility = "visible"; 
-            } 
-            else { 
-                document.querySelector("#loader").style.display = "none"; 
-                document.querySelector("#content").style.visibility = "visible"; 
-            } 
-        }; 
-    </script> 
 </body>
 </html>
