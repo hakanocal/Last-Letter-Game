@@ -31,6 +31,8 @@
     border-radius: 3px;
 }
 #sendWord{
+    margin-bottom:5px;
+    margin-left:5px;
     border-radius: 2px;
     border:1px solid gray;
     outline: none;
@@ -52,3 +54,62 @@
     background-color: white;
     padding:  3px;
 }
+
+/* - - - - - - - - - - - - */
+
+.textarea-score{
+    float: left;
+}
+.insword-buttons{
+    float: left;
+}
+.textarea{
+    float: left;
+}
+    #insertedWordList{
+        text-align:right; 
+        width:350px; 
+        height:300px;
+        resize:none;
+    }
+.score{
+    float:left;
+}
+.insWord{
+    float:left;
+}
+.buttons{
+    float:left;
+}
+
+.score-wrapper{
+    float:left;
+    height: 300px;
+    width:100px;
+    position: relative;
+
+}
+.score{
+    margin-left:5px;
+    float:left;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+#info{
+    text-align: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

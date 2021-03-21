@@ -99,3 +99,15 @@ function findWord() {
         alert('girdiğiniz kelime listedeki son kelimenin son harfi ile başlamıyor')
     }
 }
+/* --- BUTONLARIN GENİŞLİĞİNİ EN UZUN OLANA GÖRE AYARLA*/
+    buttonLengths = []
+    var buttonCount	=	document.querySelector(".buttons").childElementCount;
+    for (i = 0; i < buttonCount; i++) {
+        buttonLengths.push(document.querySelector(".buttons").children[i].offsetWidth);
+    }
+    maxButtonLenght = Math.max.apply(Math, buttonLengths);
+    var sonuc = document.getElementsByClassName("button");
+    for (i = 0; i < buttonCount; i++) {
+        sonuc[i].style.width = maxButtonLenght + "px";	
+    }
+    

@@ -56,14 +56,35 @@
         <div id="loader" class="center"></div> 
     </div>
     <div id="left-side">
-        <!-- Girilen kelimeler listesi -->
-        <textarea name="textarea" id="insertedWordList" cols="20" rows="20" style=" text-align:right; width:350px; resize:none" disabled></textarea>
-        <span id="score"></span>
-        <br>
-        <!-- Metin giriniz -->
-        <input id="insWord" type="text" maxlength="45" autocomplete="off"> 
-        <!-- Gönder butonu -->
-        <input id="sendWord" type="button" value="Gönder (Enter)" onclick="findWord()">
+        <div class="textarea-score">
+            <div class="textarea">
+                <!-- Girilen kelimeler listesi -->
+                <textarea name="textarea" id="insertedWordList" disabled></textarea>
+            </div>
+
+            <div class="score-wrapper">
+                <div class="score">
+                    <div id="help">İpucu: 2</div>    
+                    <div id="score"></div>  
+                </div>
+            </div>
+        </div>
+        <div class="insword-buttons">
+            <div class="insWord">
+                <!-- Metin giriniz -->
+                <input id="insWord" type="text" maxlength="45" autocomplete="off"> 
+                <div id="info">info</div>
+            </div>
+
+            <div class="buttons">
+                <!-- Gönder butonu -->
+                <div><input id="sendWord" type="button" value="Gönder (Enter)" onclick="findWord()" class="button"></div>
+                <!-- İpucu butonu -->
+                <div><input id="sendWord" type="button" value="İpucu (Space)" onclick="findWord()" class="button"></div>
+                <!-- Yeniden Başlat butonu -->
+                <div><input id="sendWord" type="button" value="Yeniden Başlat" onclick="findWord()" class="button"></div>
+            </div>
+        </div>
     </div>
     <div id="right-side">
         Nasıl oynanır?
