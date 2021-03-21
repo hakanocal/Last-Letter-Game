@@ -31,35 +31,34 @@
         
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
-        <script>
-            //paste this code under head tag or in a seperate js file.
-            // Wait for window load
-            $(window).load(function() {
-                // Animate loader off screen
-                $(".se-pre-con").fadeOut("slow");;
-            });
-        </script>
-        <script>
-            document.onreadystatechange = function() { 
-                if (document.readyState !== "complete") { 
-                    document.querySelector("body").style.visibility = "hidden"; 
-                    document.querySelector(".se-pre-con").style.visibility = "visible"; 
-    
-                } 
-                else { 
-                    document.querySelector(".se-pre-con").style.display = "none"; 
-                    document.querySelector("body").style.visibility = "visible"; 
-                } 
-            }; 
-        </script>
-    <!-- JAVASCRIPT -->
+        
     
 
 </head>
 <body id="ListenKey" onload="bodyOnLoad()">
     <!-- loading -->
     <div class="se-pre-con"></div>
-    <div id="loader" class="center"></div> 
+    <script>
+        //paste this code under head tag or in a seperate js file.
+        // Wait for window load
+        $(window).load(function() {
+            // Animate loader off screen
+            $(".se-pre-con").fadeOut("slow");;
+        });
+    </script>
+    <script>
+        document.onreadystatechange = function() { 
+            if (document.readyState !== "complete") { 
+                document.querySelector("body").style.visibility = "hidden"; 
+                document.querySelector(".se-pre-con").style.visibility = "visible"; 
+
+            } 
+            else { 
+                document.querySelector(".se-pre-con").style.display = "none"; 
+                document.querySelector("body").style.visibility = "visible"; 
+            } 
+        }; 
+    </script>
     <!-- Girilen kelimeler listesi -->
     <textarea name="textarea" id="insertedWordList" cols="20" rows="20" style=" text-align:right; width:400px; resize:none" disabled></textarea><br>
     <!-- Metin giriniz -->
