@@ -37,22 +37,55 @@ var randomWordForPageLoad = wordArray[randomWordIndexForPageLoad];
 function bodyOnLoad(){
     document.getElementById('insertedWordList').innerHTML += randomWordForPageLoad + "\n"; 
 }
+
+
 /* --------GİRİLEN KELİMEYİ ARA------------ */
 var finded; 
-function checkWord(eleman, sira, referans){
-	return eleman == finded;
-}
-var words = wordArray;
 function findWord() {
 	finded = document.getElementById('insWord').value
-    var word		=	words.find(checkWord);
-    if (word == finded){
-            document.getElementById('insertedWordList').innerHTML += finded + "\n";
-            document.getElementById('insWord').value = "";
-            insertedWordList.scrollTo(0,document.querySelector("#insertedWordList").scrollHeight);
+    /* Son kelime */
+    insertedWordListArray = [];
+    insertedWordList = document.getElementById('insertedWordList').innerHTML.trim();
+    var n = insertedWordList.split("\n");
+    for(var x in n){   
+        insertedWordListArray.push((n[x].trim()));
+    }
+    var lastWord = insertedWordListArray[insertedWordListArray.length - 1]
+    var lastLetter = lastWord[lastWord.length-1]
+    var firstLetter = finded[0]
+    // console.log(insertedWordListArray);
+    // console.log(lastWord);
+    // console.log(lastLetter);
+    // console.log(firstLetter);
+    if (lastLetter == firstLetter){
+        function func_listedeara(eleman, sira, referans){
+            return eleman == finded;
         }
-    else {
-        alert('bulunamadı')
+        var sonuc		=	insertedWordListArray.find(func_listedeara);
+        // console.log(sonuc);
+        // console.log(finded);
+        if (sonuc != finded){
+
+            function func_kelimeListesindeAra(eleman, sira, referans){
+                return eleman == finded;
+            }
+            var word		=	wordArray.find(func_kelimeListesindeAra);
+            if (finded == word){
+                document.getElementById('insertedWordList').innerHTML += finded + "\n";
+                document.getElementById('insWord').value = "";
+                var scrollList = document.getElementById("insertedWordList");
+                scrollList.scrollTop = scrollList.scrollHeight;
+                // insertedWordList.scrollTo(0,document.querySelector("#insertedWordList").scrollHeight);
+            }
+            else {
+                alert('Böyle bir kelime yok')
+            }
+        }
+        else{
+            alert('zaten daha önceden yazdın')
+        }
+    }
+    else{
+        alert('girdiğiniz kelime listedeki son kelimenin son harfi ile başlamıyor')
     }
 }
-
