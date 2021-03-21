@@ -1,12 +1,13 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Last Letter Game</title>
     <link rel="icon" href="images/abc.png" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         #insertedWordList::-webkit-scrollbar { width: 0 !important }
         #insertedWordList { overflow: -moz-scrollbars-none; }
@@ -31,38 +32,37 @@
         
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
-        
+        <script>
+            //paste this code under head tag or in a seperate js file.
+            // Wait for window load
+            $(window).load(function() {
+                // Animate loader off screen
+                $(".se-pre-con").fadeOut("slow");;
+            });
+        </script>
+        <script>
+            document.onreadystatechange = function() { 
+                if (document.readyState !== "complete") { 
+                    document.querySelector("body").style.visibility = "hidden"; 
+                    document.querySelector(".se-pre-con").style.visibility = "visible"; 
     
+                } 
+                else { 
+                    document.querySelector(".se-pre-con").style.display = "none"; 
+                    document.querySelector("body").style.visibility = "visible"; 
+                } 
+            }; 
+        </script>
 
 </head>
 <body id="ListenKey" onload="bodyOnLoad()">
     <!-- loading -->
     <div class="se-pre-con"></div>
-    <script>
-        //paste this code under head tag or in a seperate js file.
-        // Wait for window load
-        $(window).load(function() {
-            // Animate loader off screen
-            $(".se-pre-con").fadeOut("slow");;
-        });
-    </script>
-    <script>
-        document.onreadystatechange = function() { 
-            if (document.readyState !== "complete") { 
-                document.querySelector("body").style.visibility = "hidden"; 
-                document.querySelector(".se-pre-con").style.visibility = "visible"; 
-
-            } 
-            else { 
-                document.querySelector(".se-pre-con").style.display = "none"; 
-                document.querySelector("body").style.visibility = "visible"; 
-            } 
-        }; 
-    </script>
+    
     <!-- Girilen kelimeler listesi -->
-    <textarea name="textarea" id="insertedWordList" cols="20" rows="20" style=" text-align:right; width:400px; resize:none" disabled></textarea><br>
+    <textarea name="textarea" id="insertedWordList" cols="20" rows="20" style=" text-align:right; width:350px; resize:none" disabled></textarea><br>
     <!-- Metin giriniz -->
-    <input id="insWord" type="text" autocomplete="off" style="width: 400px; text-align:right"> 
+    <input id="insWord" type="text" maxlength="45" autocomplete="off" style="width: 350px; text-align:right"> 
     <!-- Gönder butonu -->
     <input id="sendWord" type="button" value="Send (Enter)" onclick="findWord()">
     <div id="content">
