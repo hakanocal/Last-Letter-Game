@@ -8,6 +8,7 @@
     <title>Last Letter Game</title>
     <link rel="icon" href="images/abc.png" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <style>
         #insertedWordList::-webkit-scrollbar { width: 0 !important }
         #insertedWordList { overflow: -moz-scrollbars-none; }
@@ -54,14 +55,19 @@
     <div id="wrapper-loader">
         <div id="loader" class="center"></div> 
     </div>
-    <!-- Girilen kelimeler listesi -->
-    <textarea name="textarea" id="insertedWordList" cols="20" rows="20" style=" text-align:right; width:350px; resize:none" disabled></textarea><br>
-    <!-- Metin giriniz -->
-    <input id="insWord" type="text" maxlength="45" autocomplete="off" style="width: 350px; text-align:right"> 
-    <!-- Gönder butonu -->
-    <input id="sendWord" type="button" value="Gönder (Enter)" onclick="findWord()">
-
-
+    <div id="left-side">
+        <!-- Girilen kelimeler listesi -->
+        <textarea name="textarea" id="insertedWordList" cols="20" rows="20" style=" text-align:right; width:350px; resize:none" disabled></textarea>
+        <span id="score"></span>
+        <br>
+        <!-- Metin giriniz -->
+        <input id="insWord" type="text" maxlength="45" autocomplete="off"> 
+        <!-- Gönder butonu -->
+        <input id="sendWord" type="button" value="Gönder (Enter)" onclick="findWord()">
+    </div>
+    <div id="right-side">
+        Nasıl oynanır?
+    </div>
 
 
 
