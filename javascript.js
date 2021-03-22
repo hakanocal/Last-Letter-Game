@@ -91,12 +91,13 @@ function readTextFile(file)
     rawFile.send(null);
 }
 readTextFile("words_alpha.txt");
-var randomWordIndexForPageLoad	=	Math.round(Math.random()*(wordArray.length-1));
-var randomWordForPageLoad = wordArray[randomWordIndexForPageLoad];
 
 /* --------başlangıçta rastgele kelime ile oyuna başla----------- */
 insertedWordListArray = [];
+var insertedWordList;
 function bodyOnLoad(){
+    var randomWordIndexForPageLoad	=	Math.round(Math.random()*(wordArray.length-1));
+    var randomWordForPageLoad = wordArray[randomWordIndexForPageLoad];
     document.getElementById('insertedWordList').innerHTML += randomWordForPageLoad + "\n"; 
     insertedWordList = document.getElementById('insertedWordList').innerHTML.trim();
     var n = insertedWordList.split("\n");
@@ -171,3 +172,24 @@ function findWord() {
     for (i = 0; i < buttonCount; i++) {
         sonuc[i].style.width = maxButtonLenght + "px";	
     }
+/* ----- YENİDEN BAŞLAT------*/
+function resetGame(){
+    resetTimer();
+    insertedWordListArray = [];
+    insertedWordList = "";
+    document.getElementById('insertedWordList').innerHTML = "";
+    bodyOnLoad();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
