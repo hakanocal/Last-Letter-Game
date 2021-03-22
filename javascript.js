@@ -1,4 +1,64 @@
+/* ------GEÇEN SÜRE---------*/
+const timer = document.getElementById('stopwatch');
 
+var hr = 0;
+var min = 0;
+var sec = 0;
+var stoptime = true;
+
+function startTimer() {
+  if (stoptime == true) {
+        stoptime = false;
+        timerCycle();
+    }
+}
+function stopTimer() {
+  if (stoptime == false) {
+    stoptime = true;
+  }
+}
+
+function timerCycle() {
+    if (stoptime == false) {
+    sec = parseInt(sec);
+    min = parseInt(min);
+    hr = parseInt(hr);
+
+    sec = sec + 1;
+
+    if (sec == 60) {
+      min = min + 1;
+      sec = 0;
+    }
+    if (min == 60) {
+      hr = hr + 1;
+      min = 0;
+      sec = 0;
+    }
+
+    if (sec < 10 || sec == 0) {
+      sec = '0' + sec;
+    }
+    if (min < 10 || min == 0) {
+      min = '0' + min;
+    }
+    if (hr < 10 || hr == 0) {
+      hr = '0' + hr;
+    }
+    // timer.innerHTML = hr + ':' + min + ':' + sec;
+    timer.innerHTML = "Geçen süre: " + min + ':' + sec;
+
+    setTimeout("timerCycle()", 1000);
+  }
+}
+
+function resetTimer() {
+    timer.innerHTML = "Geçen süre: " +"00:00";
+    stoptime = true;
+    hr = 0;
+    sec = 0;
+    min = 0;
+}
 /* ------ enter tuşuna tıklandığında send butonunu çalıştır -----*/
 var inputKey = document.getElementById("ListenKey");
 inputKey.addEventListener("keyup", function(event) {
@@ -45,8 +105,7 @@ function bodyOnLoad(){
     }
     document.getElementById('score').innerHTML = "Skor: " + (insertedWordListArray.length-1);
 }
-
-
+// SÜREYİ BAŞLAT
 /* --------GİRİLEN KELİMEYİ ARA------------ */
 var finded; 
 function findWord() {
@@ -85,7 +144,9 @@ function findWord() {
                 scrollList.scrollTop = scrollList.scrollHeight;
                 // insertedWordList.scrollTo(0,document.querySelector("#insertedWordList").scrollHeight);
                 document.getElementById('score').innerHTML = "Skor: " + (insertedWordListArray.length);
-
+                if (stoptime == true){
+                    startTimer();
+                }
             }
             else {
                 alert('Böyle bir kelime yok')
@@ -110,4 +171,3 @@ function findWord() {
     for (i = 0; i < buttonCount; i++) {
         sonuc[i].style.width = maxButtonLenght + "px";	
     }
-    

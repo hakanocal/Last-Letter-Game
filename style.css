@@ -31,7 +31,7 @@
     border-radius: 3px;
 }
 #sendWord{
-    margin-bottom:5px;
+    margin-bottom:10px;
     margin-left:5px;
     border-radius: 2px;
     border:1px solid gray;
@@ -85,9 +85,8 @@
 .score-wrapper{
     float:left;
     height: 300px;
-    width:100px;
+    width:150px;
     position: relative;
-
 }
 .score{
     margin-left:5px;
@@ -95,6 +94,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
+
 }
 #info{
     text-align: right;
