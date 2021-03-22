@@ -1,4 +1,4 @@
-/* ------GEÇEN SÜRE---------*/
+//GEÇEN SÜRE
 const timer = document.getElementById('stopwatch');
 
 var hr = 0;
@@ -59,7 +59,7 @@ function resetTimer() {
     sec = 0;
     min = 0;
 }
-/* ------ enter tuşuna tıklandığında send butonunu çalıştır -----*/
+//ENTER TUŞUNA TIKLANDIĞINDA SEND BUTONUNU ÇALIŞTIR
 var inputKey = document.getElementById("ListenKey");
 inputKey.addEventListener("keyup", function(event) {
     if (event.keyCode === 13) {
@@ -67,8 +67,7 @@ inputKey.addEventListener("keyup", function(event) {
     document.getElementById("sendWord").click();
     }
 });
-
-/* ------------DOSYADA BULUNAN KELİMELERİ LİSTEYE AKTAR--------------  */
+//DOSYADA BULUNAN KELİMELERİ LİSTEYE AKTAR
 var wordArray = []
 function readTextFile(file)
 {
@@ -91,8 +90,7 @@ function readTextFile(file)
     rawFile.send(null);
 }
 readTextFile("words_alpha.txt");
-
-/* --------başlangıçta rastgele kelime ile oyuna başla----------- */
+// BAŞLANGIÇTA REASTGELE KELİME İLE OYUNA BAŞLA
 insertedWordListArray = [];
 var insertedWordList;
 function bodyOnLoad(){
@@ -106,8 +104,7 @@ function bodyOnLoad(){
     }
     document.getElementById('score').innerHTML = "Skor: " + (insertedWordListArray.length-1);
 }
-// SÜREYİ BAŞLAT
-/* --------GİRİLEN KELİMEYİ ARA------------ */
+// GİRİLEN KELİMEYİ ARA
 var finded; 
 function findWord() {
 	finded = document.getElementById('insWord').value
@@ -121,17 +118,11 @@ function findWord() {
     var lastWord = insertedWordListArray[insertedWordListArray.length - 1]
     var lastLetter = lastWord[lastWord.length-1]
     var firstLetter = finded[0]
-    // console.log(insertedWordListArray);
-    // console.log(lastWord);
-    // console.log(lastLetter);
-    // console.log(firstLetter);
     if (lastLetter == firstLetter){
         function func_listedeara(eleman, sira, referans){
             return eleman == finded;
         }
         var sonuc		=	insertedWordListArray.find(func_listedeara);
-        // console.log(sonuc);
-        // console.log(finded);
         if (sonuc != finded){
 
             function func_kelimeListesindeAra(eleman, sira, referans){
@@ -161,7 +152,7 @@ function findWord() {
         alert('girdiğiniz kelime listedeki son kelimenin son harfi ile başlamıyor')
     }
 }
-/* --- BUTONLARIN GENİŞLİĞİNİ EN UZUN OLANA GÖRE AYARLA*/
+// BUTONLARIN GENİŞLİĞİNİ EN UZUN OLANA GÖRE AYARLA
     buttonLengths = []
     var buttonCount	=	document.querySelector(".buttons").childElementCount;
     for (i = 0; i < buttonCount; i++) {
@@ -172,7 +163,7 @@ function findWord() {
     for (i = 0; i < buttonCount; i++) {
         sonuc[i].style.width = maxButtonLenght + "px";	
     }
-/* ----- YENİDEN BAŞLAT------*/
+// YENİDEN BAŞLAT
 function resetGame(){
     resetTimer();
     insertedWordListArray = [];
