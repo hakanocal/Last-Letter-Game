@@ -67,6 +67,12 @@ inputKey.addEventListener("keyup", function(event) {
     document.getElementById("sendWord").click();
     }
 });
+//SPACE TUŞUNA TIKLANDIĞINDA BUTONUNU ÇALIŞTIR
+document.body.onkeyup = function(e){
+    if(e.keyCode == 32){
+        document.getElementById("hint").click();
+    }
+}
 //DOSYADA BULUNAN KELİMELERİ LİSTEYE AKTAR
 var wordArray = []
 function readTextFile(file)
@@ -89,8 +95,10 @@ function readTextFile(file)
     }
     rawFile.send(null);
 }
-readTextFile("words_alpha.txt");
+readTextFile("allWords.txt");
 // BAŞLANGIÇTA REASTGELE KELİME İLE OYUNA BAŞLA
+
+document.getElementById('stopwatch').innerHTML = "Geçen süre: 00:00"
 insertedWordListArray = [];
 var insertedWordList;
 function bodyOnLoad(){
@@ -106,9 +114,10 @@ function bodyOnLoad(){
 }
 // GİRİLEN KELİMEYİ ARA
 var finded; 
+var lastLetter;
 function findWord() {
 	finded = document.getElementById('insWord').value
-    /* Son kelime */
+    /* Son kelime ve son karakteri*/
     insertedWordListArray = [];
     insertedWordList = document.getElementById('insertedWordList').innerHTML.trim();
     var n = insertedWordList.split("\n");
@@ -117,6 +126,7 @@ function findWord() {
     }
     var lastWord = insertedWordListArray[insertedWordListArray.length - 1]
     var lastLetter = lastWord[lastWord.length-1]
+    
     var firstLetter = finded[0]
     if (lastLetter == firstLetter){
         function func_listedeara(eleman, sira, referans){
@@ -165,11 +175,77 @@ function findWord() {
     }
 // YENİDEN BAŞLAT
 function resetGame(){
+    document.getElementById("reset").blur();
     resetTimer();
     insertedWordListArray = [];
     insertedWordList = "";
     document.getElementById('insertedWordList').innerHTML = "";
     bodyOnLoad();
+}
+// İPUCU BUTONU
+function hint(){
+    /* son kelime ve karakteri */
+    insertedWordListArray = [];
+    insertedWordList = document.getElementById('insertedWordList').innerHTML.trim();
+    var n = insertedWordList.split("\n");
+    for(var x in n){   
+        insertedWordListArray.push((n[x].trim()));
+    }
+    var lastWord = insertedWordListArray[insertedWordListArray.length - 1];
+    var lastLetter = lastWord[lastWord.length-1];
+    alert(lastLetter);
+}
+
+
+
+
+/* ---------------- 4 -------------------- */
+function hint2(){
+    /* son kelime ve karakteri */
+    insertedWordListArray = [];
+    insertedWordList = document.getElementById('insertedWordList').innerHTML.trim();
+    var n = insertedWordList.split("\n");
+    for(var x in n){   
+        insertedWordListArray.push((n[x].trim()));
+    }
+    var lastWord = insertedWordListArray[insertedWordListArray.length - 1];
+    var lastLetter = lastWord[lastWord.length-1];
+    /* listeye girilen karakterlerin olmadığı yeni bir liste çıkart ve son karakterle başlayan kelimelerin bulunduğu listeden rastgele kelime seç ardından inputta kelimeyi  göster*/
+    var withoutInsertedWord = [];
+    var isEqual = false;
+    for (var i = 0; i < wordArray.length; i++){
+        for (var j = 0; j < insertedWordListArray.length; j++){
+            if (wordArray[i] == insertedWordListArray[j]){
+                isEqual = true;
+            }
+            else{
+                if (!isEqual){
+                    isEqual = false;
+                }
+            }
+        }
+        if (!isEqual){
+               withoutInsertedWord.push(wordArray[i]);
+        }
+        var isEqual = false;
+    }
+
+    var firstLetter = lastLetter;
+    var startWithFirstLetterList = [];
+    for(var x in withoutInsertedWord){ 
+        var perArrayItem = withoutInsertedWord[x].trim();
+        var isStartingWithFirstLetter = perArrayItem.startsWith(firstLetter);
+        if (isStartingWithFirstLetter == true){
+            startWithFirstLetterList.push(perArrayItem);
+        }
+    }
+    if (startWithFirstLetterList.length == 0){
+        alert('kelime kalmadı olum')
+    }
+    else{
+        var randomWordStartingWithFirstLetter = startWithFirstLetterList[Math.floor(Math.random() * startWithFirstLetterList.length)];
+        document.getElementById('insWord').value = randomWordStartingWithFirstLetter;
+    }
 }
 
 
@@ -177,10 +253,27 @@ function resetGame(){
 
 
 
+/*
 
+var array1= ['ahmet', 'mehmet', 'tunç', 'sex'];
+var array2= ['mahmut', 'mehmet', 'sex'];
+var withoutInsertedWord = [];
+var isEqual = false;
+for (var i = 0; i < array1.length; i++){
+	for (var j = 0; j < array2.length; j++){
+		if (array1[i] == array2[j]){
+        	isEqual = true;
+        }
+        else{
+        	if (!isEqual){
+            	isEqual = false;
+            }
+        }
+	}
+    if (!isEqual){
+   		withoutInsertedWord.push(array1[i]);
+    }
+    var isEqual = false;
+}
 
-
-
-
-
-
+*/
