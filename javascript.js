@@ -182,25 +182,10 @@ function resetGame(){
     document.getElementById('insertedWordList').innerHTML = "";
     bodyOnLoad();
 }
+
+
 // İPUCU BUTONU
 function hint(){
-    /* son kelime ve karakteri */
-    insertedWordListArray = [];
-    insertedWordList = document.getElementById('insertedWordList').innerHTML.trim();
-    var n = insertedWordList.split("\n");
-    for(var x in n){   
-        insertedWordListArray.push((n[x].trim()));
-    }
-    var lastWord = insertedWordListArray[insertedWordListArray.length - 1];
-    var lastLetter = lastWord[lastWord.length-1];
-    alert(lastLetter);
-}
-
-
-
-
-/* ---------------- 4 -------------------- */
-function hint2(){
     /* son kelime ve karakteri */
     insertedWordListArray = [];
     insertedWordList = document.getElementById('insertedWordList').innerHTML.trim();
@@ -247,33 +232,3 @@ function hint2(){
         document.getElementById('insWord').value = randomWordStartingWithFirstLetter;
     }
 }
-
-
-
-
-
-
-/*
-
-var array1= ['ahmet', 'mehmet', 'tunç', 'sex'];
-var array2= ['mahmut', 'mehmet', 'sex'];
-var withoutInsertedWord = [];
-var isEqual = false;
-for (var i = 0; i < array1.length; i++){
-	for (var j = 0; j < array2.length; j++){
-		if (array1[i] == array2[j]){
-        	isEqual = true;
-        }
-        else{
-        	if (!isEqual){
-            	isEqual = false;
-            }
-        }
-	}
-    if (!isEqual){
-   		withoutInsertedWord.push(array1[i]);
-    }
-    var isEqual = false;
-}
-
-*/
