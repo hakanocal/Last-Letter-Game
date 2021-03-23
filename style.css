@@ -117,6 +117,7 @@ html{
     }
 .score{
     float:left;
+    line-height: 1.5;
 }
 .insWord{
     float:left;
