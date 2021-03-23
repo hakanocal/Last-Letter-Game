@@ -54,12 +54,7 @@
     background-color: white;
     padding:  3px;
 }
-#sendWord:active{
-    background-color: red;
-}
-#hint:active{
-    background-color: red;
-}
+
 /* - - - - - - - - - - - - */
 
 .textarea-score{
