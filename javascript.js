@@ -11,7 +11,6 @@ document.onreadystatechange = function() {
 //GEÇEN SÜRE
 const timer = document.getElementById('stopwatch');
 
-var hr = 0;
 var min = 0;
 var sec = 0;
 var stoptime = true;
@@ -30,42 +29,39 @@ function stopTimer() {
 
 function timerCycle() {
     if (stoptime == false) {
-    sec = parseInt(sec);
-    min = parseInt(min);
-    hr = parseInt(hr);
+        sec = parseInt(sec);
+        min = parseInt(min);
+        if (min == 59 && sec == 59){
+            document.getElementById("hint").disabled = true;
+            document.getElementById("sendWord").disabled = true;
+            document.getElementById("insWord").disabled = true;
+            document.getElementById("insWord").value = "Oyun bitti lütfen yeni oyun başlatın";
 
-    sec = sec + 1;
-
-    if (sec == 60) {
-      min = min + 1;
-      sec = 0;
-    }
-    if (min == 60) {
-      hr = hr + 1;
-      min = 0;
-      sec = 0;
-    }
-
-    if (sec < 10 || sec == 0) {
-      sec = '0' + sec;
-    }
-    if (min < 10 || min == 0) {
-      min = '0' + min;
-    }
-    if (hr < 10 || hr == 0) {
-      hr = '0' + hr;
-    }
-    // timer.innerHTML = hr + ':' + min + ':' + sec;
-    timer.innerHTML = "Geçen süre: " + min + ':' + sec;
-
-    setTimeout("timerCycle()", 1000);
+            document.getElementById("hint").style.cursor = "default";
+            document.getElementById("sendWord").style.cursor = "default";
+        }
+        else{
+            sec = sec + 1;
+            if (sec == 60) {
+                min = min + 1;
+                sec = 0;
+            }
+            
+            if (sec < 10 || sec == 0) {
+            sec = '0' + sec;
+            }
+            if (min < 10 || min == 0) {
+                min = '0' + min;
+            }
+            timer.innerHTML = "Geçen süre: " + min + ':' + sec;
+            setTimeout("timerCycle()", 1000);
+        }
   }
 }
 
 function resetTimer() {
     timer.innerHTML = "Geçen süre: " +"00:00";
     stoptime = true;
-    hr = 0;
     sec = 0;
     min = 0;
 }
@@ -192,6 +188,12 @@ function findWord() {
     }
 // YENİDEN BAŞLAT
 function resetGame(){
+    document.getElementById("hint").disabled = false;
+    document.getElementById("sendWord").disabled = false;
+    document.getElementById("insWord").disabled = false;
+    document.getElementById("hint").style.cursor = "pointer";
+    document.getElementById("sendWord").style.cursor = "pointer";
+
     document.getElementById("reset").blur();
     resetTimer();
     insertedWordListArray = [];
