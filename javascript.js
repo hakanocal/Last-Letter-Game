@@ -1,4 +1,4 @@
-//SAYFANIN YÜKLENME DURUMUNA GÖRE ANİMASYIN GÖSTER
+//SAYFANIN YÜKLENME DURUMUNA GÖRE ANİMASYON GÖSTER
 document.onreadystatechange = function() { 
     if (document.readyState !== "complete") { 
         document.querySelector("body").style.visibility = "hidden"; 
@@ -109,7 +109,10 @@ function readTextFile(file)
 }
 readTextFile("allWords.txt");
 // BAŞLANGIÇTA REASTGELE KELİME İLE OYUNA BAŞLA
-
+var hintCount = 0;
+document.getElementById('help').innerHTML = "İpucu: " + hintCount;
+document.getElementById('hint').disabled = false;
+document.getElementById("hint").style.cursor = "pointer";
 document.getElementById('stopwatch').innerHTML = "Geçen süre: 00:00"
 insertedWordListArray = [];
 var insertedWordList;
@@ -196,6 +199,10 @@ function resetGame(){
     document.getElementById('insertedWordList').innerHTML = "";
     document.getElementById('insWord').value = "";
     bodyOnLoad();
+    hintCount = 0;
+    document.getElementById('help').innerHTML = "İpucu: " + hintCount;
+    document.getElementById('hint').disabled = false;
+    document.getElementById("hint").style.cursor = "pointer";
 }
 
 
@@ -227,7 +234,7 @@ function hint(){
             }
         }
         if (!isEqual){
-               withoutInsertedWord.push(wordArray[i]);
+                withoutInsertedWord.push(wordArray[i]);
         }
         var isEqual = false;
     }
@@ -245,7 +252,21 @@ function hint(){
         alert('kelime kalmadı olum')
     }
     else{
-        var randomWordStartingWithFirstLetter = startWithFirstLetterList[Math.floor(Math.random() * startWithFirstLetterList.length)];
-        document.getElementById('insWord').value = randomWordStartingWithFirstLetter;
+        if (hintCount >= 5){
+            document.getElementById('hint').disabled = true;
+            document.getElementById("hint").style.cursor = "default";
+            document.getElementById('help').innerHTML = "İpucu: " + hintCount;
+        }
+        else{
+            hintCount +=1;
+            document.getElementById('help').innerHTML = "İpucu: " + hintCount;
+            var randomWordStartingWithFirstLetter = startWithFirstLetterList[Math.floor(Math.random() * startWithFirstLetterList.length)];
+            document.getElementById('insWord').value = randomWordStartingWithFirstLetter;
+            if (hintCount >= 5){
+                document.getElementById('hint').disabled = true;
+                document.getElementById("hint").style.cursor = "default";
+                document.getElementById('help').innerHTML = "İpucu: " + hintCount;
+            }
+        }
     }
 }
