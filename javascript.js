@@ -1,3 +1,13 @@
+//SAYFANIN YÜKLENME DURUMUNA GÖRE ANİMASYIN GÖSTER
+document.onreadystatechange = function() { 
+    if (document.readyState !== "complete") { 
+        document.querySelector("body").style.visibility = "hidden"; 
+        document.querySelector("#wrapper-loader").style.visibility = "visible"; 
+    } else { 
+        document.querySelector("#wrapper-loader").style.display = "none"; 
+        document.querySelector("body").style.visibility = "visible"; 
+    } 
+}; 
 //GEÇEN SÜRE
 const timer = document.getElementById('stopwatch');
 

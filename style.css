@@ -2,6 +2,47 @@
     margin:0;
     padding:0;
 }
+#insertedWordList::-webkit-scrollbar { width: 0 !important }
+#insertedWordList { overflow: -moz-scrollbars-none; }
+#insertedWordList { -ms-overflow-style: none; }
+
+#loader { 
+    border: 10px solid #f3f3f3; 
+    border-radius: 50%; 
+    border-top: 10px solid #444444; 
+    width: 50px; 
+    height: 50px; 
+    animation: spin 1s linear infinite; 
+} 
+  
+@keyframes spin { 
+    100% { 
+        transform: rotate(360deg); 
+    } 
+} 
+.center { 
+    position: absolute; 
+    top: 0; 
+    bottom: 0; 
+    left: 0; 
+    right: 0; 
+    margin: auto; 
+} 
+#wrapper-loader{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+
+
+
+/* - - - - - - - - - */
+
+
 #left-side{
     width: calc(50% - 20px);
     float:left;
