@@ -65,12 +65,14 @@ inputKey.addEventListener("keyup", function(event) {
     if (event.keyCode === 13) {
     event.preventDefault();
     document.getElementById("sendWord").click();
+    document.getElementById("sendWord").blur();
     }
 });
 //SPACE TUŞUNA TIKLANDIĞINDA BUTONUNU ÇALIŞTIR
 document.body.onkeyup = function(e){
     if(e.keyCode == 32){
         document.getElementById("hint").click();
+        document.getElementById("hint").blur();
     }
 }
 //DOSYADA BULUNAN KELİMELERİ LİSTEYE AKTAR
@@ -116,6 +118,8 @@ function bodyOnLoad(){
 var finded; 
 var lastLetter;
 function findWord() {
+    document.getElementById("hint").blur();
+    document.getElementById("sendWord").blur();
 	finded = document.getElementById('insWord').value
     /* Son kelime ve son karakteri*/
     insertedWordListArray = [];
@@ -180,12 +184,15 @@ function resetGame(){
     insertedWordListArray = [];
     insertedWordList = "";
     document.getElementById('insertedWordList').innerHTML = "";
+    document.getElementById('insWord').value = "";
     bodyOnLoad();
 }
 
 
 // İPUCU BUTONU
 function hint(){
+    document.getElementById("hint").blur();
+    document.getElementById("sendWord").blur();
     /* son kelime ve karakteri */
     insertedWordListArray = [];
     insertedWordList = document.getElementById('insertedWordList').innerHTML.trim();
