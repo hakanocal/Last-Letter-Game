@@ -38,8 +38,6 @@
 }
 
 
-
-
 /* - - - - - - - - - */
 
 
@@ -109,9 +107,10 @@
 }
     #insertedWordList{
         text-align:right; 
-        width:350px; 
-        height:300px;
+        width: calc(350px - 10px); 
+        height: calc(300px - 10px);
         resize:none;
+        padding: 5px;
     }
 .score{
     float:left;
