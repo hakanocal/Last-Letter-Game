@@ -106,7 +106,9 @@ function readTextFile(file)
 readTextFile("allWords.txt");
 // BAŞLANGIÇTA REASTGELE KELİME İLE OYUNA BAŞLA
 var hintCount = 0;
+var remainingHintCount = 5;
 document.getElementById('help').innerHTML = "İpucu: " + hintCount;
+document.getElementById('remainingHintCount').innerHTML = remainingHintCount;
 document.getElementById('hint').disabled = false;
 document.getElementById("hint").style.cursor = "pointer";
 document.getElementById('stopwatch').innerHTML = "Geçen süre: 00:00"
@@ -202,7 +204,9 @@ function resetGame(){
     document.getElementById('insWord').value = "";
     bodyOnLoad();
     hintCount = 0;
+    remainingHintCount = 5;
     document.getElementById('help').innerHTML = "İpucu: " + hintCount;
+    document.getElementById('remainingHintCount').innerHTML = remainingHintCount;
     document.getElementById('hint').disabled = false;
     document.getElementById("hint").style.cursor = "pointer";
 }
@@ -258,16 +262,21 @@ function hint(){
             document.getElementById('hint').disabled = true;
             document.getElementById("hint").style.cursor = "default";
             document.getElementById('help').innerHTML = "İpucu: " + hintCount;
+            document.getElementById('remainingHintCount').innerHTML = remainingHintCount;
+
         }
         else{
             hintCount +=1;
+            remainingHintCount -=1;
             document.getElementById('help').innerHTML = "İpucu: " + hintCount;
+            document.getElementById('remainingHintCount').innerHTML = remainingHintCount;
             var randomWordStartingWithFirstLetter = startWithFirstLetterList[Math.floor(Math.random() * startWithFirstLetterList.length)];
             document.getElementById('insWord').value = randomWordStartingWithFirstLetter;
             if (hintCount >= 5){
                 document.getElementById('hint').disabled = true;
                 document.getElementById("hint").style.cursor = "default";
                 document.getElementById('help').innerHTML = "İpucu: " + hintCount;
+                document.getElementById('remainingHintCount').innerHTML = remainingHintCount;
             }
         }
     }

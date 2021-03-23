@@ -42,7 +42,11 @@
                 <!-- Gönder butonu -->
                 <div><input id="sendWord" type="button" value="Gönder (Enter)" onclick="findWord()" class="button"></div>
                 <!-- İpucu butonu -->
-                <div><input id="hint" type="button" value="İpucu (Space)" onclick="hint()" class="button"></div>
+                <div><input id="hint" type="button" value="İpucu (Space)" onclick="hint()" class="button">
+                    <span id="remainingHintCountWrapper">
+                        <span id="remainingHintCount"></span>
+                    </span>
+                </div>
                 <!-- Yeniden Başlat butonu -->
                 <div><input id="reset" type="button" value="Yeniden Başlat" onclick="resetGame()" class="button"></div>
             </div>

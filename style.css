@@ -2,6 +2,9 @@
     margin:0;
     padding:0;
 }
+html{
+    font-family: Arial, Helvetica, sans-serif;
+}
 #insertedWordList::-webkit-scrollbar { width: 0 !important }
 #insertedWordList { overflow: -moz-scrollbars-none; }
 #insertedWordList { -ms-overflow-style: none; }
@@ -140,8 +143,28 @@
     text-align: right;
 }
 
+/* - - - - - - - -  */
 
-
+#remainingHintCountWrapper {
+    display: inline-block;
+    background-color: gray;
+    width:20px;
+    height:20px;
+    position:relative;
+    border-radius:50%;
+    overflow:hidden;
+    left:-15px;
+    top:-5px;
+}
+#remainingHintCount{
+    display: inline-block;
+    position:absolute;
+    top: calc(50% - 7px);
+    left: calc(50% - 4px);
+    color:white;
+    font-weight:bold;
+    font-size: small;
+}
 
 
 
