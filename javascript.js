@@ -105,6 +105,9 @@ function readTextFile(file)
 }
 readTextFile("test.txt");
 // BAŞLANGIÇTA REASTGELE KELİME İLE OYUNA BAŞLA
+function insWorddefaultStyle(){
+    document.getElementById('insWord').style.color = "black";
+}
 var hintCount = 0;
 var remainingHintCount = 5;
 document.getElementById('help').innerHTML = "İpucu: " + hintCount;
@@ -181,6 +184,7 @@ function findWord() {
                 $("#info").stop();
                 $("#info").fadeOut(1); 
                 $("#info").fadeIn(1); 
+                document.getElementById('insWord').style.color = "#c54643";
                 document.getElementById('info').innerHTML = "Böyle bir kelime yok";
                 infoTimer();
             }
