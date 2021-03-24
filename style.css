@@ -167,7 +167,10 @@ html{
     font-size: small;
 }
 
-
+#info{
+    margin-top:5px;
+    color:#c54643;
+}
 
 
 

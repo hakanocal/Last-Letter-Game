@@ -103,7 +103,7 @@ function readTextFile(file)
     }
     rawFile.send(null);
 }
-readTextFile("allWords.txt");
+readTextFile("test.txt");
 // BAŞLANGIÇTA REASTGELE KELİME İLE OYUNA BAŞLA
 var hintCount = 0;
 var remainingHintCount = 5;
@@ -125,6 +125,17 @@ function bodyOnLoad(){
     }
     document.getElementById('score').innerHTML = "Skor: " + (insertedWordListArray.length-1);
 }
+//info fadeout timer
+var var_infoTimer;
+function infoTimer() {
+    var_infoTimer = setTimeout(function(){ 
+        $("#info").fadeOut(1000); 
+    }, 3000);
+}
+function stopInfoTimer() {
+    clearTimeout(var_infoTimer);
+}
+
 // GİRİLEN KELİMEYİ ARA
 var finded; 
 var lastLetter;
@@ -143,6 +154,7 @@ function findWord() {
     var lastLetter = lastWord[lastWord.length-1]
     
     var firstLetter = finded[0]
+    
     if (lastLetter == firstLetter){
         function func_listedeara(eleman, sira, referans){
             return eleman == finded;
@@ -166,15 +178,26 @@ function findWord() {
                 }
             }
             else {
-                alert('Böyle bir kelime yok')
+                $("#info").stop();
+                $("#info").fadeOut(1); 
+                $("#info").fadeIn(1); 
+                document.getElementById('info').innerHTML = "Böyle bir kelime yok";
+                infoTimer();
             }
         }
         else{
-            alert('zaten daha önceden yazdın')
+            $("#info").stop();
+                $("#info").fadeOut(1); 
+                $("#info").fadeIn(1); 
+                document.getElementById('info').innerHTML = "Bu kelime önceden yazıldı";
+                infoTimer();
         }
     }
     else{
-        alert('girdiğiniz kelime listedeki son kelimenin son harfi ile başlamıyor')
+        $("#info").fadeOut(1); 
+        $("#info").fadeIn(1); 
+        document.getElementById('info').innerHTML = "Kelime son harf ile başlamıyor";
+        infoTimer();
     }
 }
 // BUTONLARIN GENİŞLİĞİNİ EN UZUN OLANA GÖRE AYARLA
@@ -255,7 +278,10 @@ function hint(){
         }
     }
     if (startWithFirstLetterList.length == 0){
-        alert('kelime kalmadı olum')
+        $("#info").fadeOut(1); 
+        $("#info").fadeIn(1); 
+        document.getElementById('info').innerHTML = "\"" + lastLetter + "\"" + " İLE BAŞLAYAN KELİME KALMADI";
+        infoTimer();
     }
     else{
         if (hintCount >= 5){
