@@ -356,7 +356,33 @@ function hint(){
     }
 }
 
+
 // Nasıl oynanır?
+if (document.getElementById('slideIcon').innerText == "arrow_drop_up"){
+    $("#howToPlay").slideDown(1);
+}
+else{
+    $("#howToPlay").slideUp(1);
+}
+
+
+if($("#howToPlay").is(":hidden"))
+{
+    document.getElementById('slideIcon').innerText = "arrow_drop_down";
+}
+else{
+    document.getElementById('slideIcon').innerText = "arrow_drop_up";
+}
+  
+
 $("#rightSideTitle").click(function(){
-    $("#howToPlay").slideToggle("fast");
+    if($("#howToPlay").is(":hidden"))
+    {
+        document.getElementById('slideIcon').innerText = "arrow_drop_up";
+        $("#howToPlay").slideDown("fast");
+    }
+    else{
+        document.getElementById('slideIcon').innerText = "arrow_drop_down";
+        $("#howToPlay").slideUp("fast");
+    }
 });
