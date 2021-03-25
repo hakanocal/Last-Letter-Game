@@ -106,6 +106,7 @@ function readTextFile(file)
 readTextFile("allWords.txt");
 // BAŞLANGIÇTA REASTGELE KELİME İLE OYUNA BAŞLA
 var idCounter = 0;
+var lastLetterIdCounter = 0;
 function insWorddefaultStyle(){
     document.getElementById('insWord').style.color = "black";
 }
@@ -153,6 +154,9 @@ var lastLetter;
 var styledWord;
 
 function findWord() {
+    if (lastLetterIdCounter != 0){
+        document.getElementById('lastLetterIdCounter-'+lastLetterIdCounter).removeAttribute('style');
+    }
     if (styledWord != undefined){
         styledWord.style.backgroundColor = "initial";
         styledWord.style.color = "rgb(84, 84, 84)";
@@ -229,6 +233,12 @@ function findWord() {
         $("#info").fadeOut(1); 
         $("#info").fadeIn(1); 
         document.getElementById('info').innerHTML = "Kelime son harf ile başlamıyor";
+        /* son kelimeye ulaş */
+        lastLetterIdCounter +=1;
+        var str = document.getElementById("insertedWordList").lastElementChild.innerText; 
+        var txt2 = "<span style='background-color:red; color:white;' id='lastLetterIdCounter-" + lastLetterIdCounter + "'>" + str.slice(-1) + "</span>" ;
+        var txt3 = str.slice(0, str.length-1);
+        document.getElementById("insertedWordList").lastElementChild.innerHTML = txt3 + txt2;
         infoTimer();
     }
 }
