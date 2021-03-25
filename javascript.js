@@ -138,15 +138,15 @@ function bodyOnLoad(){
     document.getElementById('score').innerHTML = "Skor: " + (insertedWordListArray.length-1);
 }
 //info fadeout timer
-var var_infoTimer;
-function infoTimer() {
-    var_infoTimer = setTimeout(function(){ 
-        $("#info").fadeOut(1000); 
-    }, 3000);
-}
-function stopInfoTimer() {
-    clearTimeout(var_infoTimer);
-}
+// var var_infoTimer;
+// function infoTimer() {
+//     var_infoTimer = setTimeout(function(){ 
+//         $("#info").fadeOut(1000); 
+//     }, 3000);
+// }
+// function stopInfoTimer() {
+//     clearTimeout(var_infoTimer);
+// }
 
 // GİRİLEN KELİMEYİ ARA
 var finded; 
@@ -204,19 +204,19 @@ function findWord() {
                 }
             }
             else {
-                $("#info").stop();
-                $("#info").fadeOut(1); 
-                $("#info").fadeIn(1); 
-                document.getElementById('insWord').style.color = "#c54643";
-                document.getElementById('info').innerHTML = "Böyle bir kelime yok";
-                infoTimer();
+                // $("#info").stop();
+                // $("#info").fadeOut(1); 
+                // $("#info").fadeIn(1); 
+                document.getElementById('insWord').style.color = "#b1000d";
+                // document.getElementById('info').innerHTML = "Böyle bir kelime yok";
+                // infoTimer();
             }
         }
         else{
-            $("#info").stop();
-            $("#info").fadeOut(1); 
-            $("#info").fadeIn(1); 
-            document.getElementById('info').innerHTML = "Bu kelime önceden yazıldı";
+            // $("#info").stop();
+            // $("#info").fadeOut(1); 
+            // $("#info").fadeIn(1); 
+            // document.getElementById('info').innerHTML = "Bu kelime önceden yazıldı";
             
             /* Eğer girilen kelime zaten daha önceden yazıldıysa listede o kelimeyi kırmızı ile göster*/
             var alan		=	document.getElementById("insertedWordList").children;
@@ -229,20 +229,20 @@ function findWord() {
                     styledWord = alan[baslangic];
                 }					
             }
-            infoTimer();
+            // infoTimer();
         }
     }
     else{
-        $("#info").fadeOut(1); 
-        $("#info").fadeIn(1); 
-        document.getElementById('info').innerHTML = "Kelime son harf ile başlamıyor";
+        // $("#info").fadeOut(1); 
+        // $("#info").fadeIn(1); 
+        // document.getElementById('info').innerHTML = "Kelime son harf ile başlamıyor";
         /* son kelimeye ulaş */
         lastLetterIdCounter +=1;
         var str = document.getElementById("insertedWordList").lastElementChild.innerText; 
         var txt2 = "<span style='background-color:#b1000d; color:white;' id='lastLetterIdCounter-" + lastLetterIdCounter + "'>" + str.slice(-1) + "</span>" ;
         var txt3 = str.slice(0, str.length-1);
         document.getElementById("insertedWordList").lastElementChild.innerHTML = txt3 + txt2;
-        infoTimer();
+        // infoTimer();
         var scrollList = document.getElementById("insertedWordList");
         scrollList.scrollTop = scrollList.scrollHeight;
     }
@@ -326,10 +326,10 @@ function hint(){
         }
     }
     if (startWithFirstLetterList.length == 0){
-        $("#info").fadeOut(1); 
-        $("#info").fadeIn(1); 
+        // $("#info").fadeOut(1); 
+        // $("#info").fadeIn(1); 
         document.getElementById('info').innerHTML = "\"" + lastLetter + "\"" + " İLE BAŞLAYAN KELİME KALMADI";
-        infoTimer();
+        // infoTimer();
     }
     else{
         if (hintCount >= 5){
