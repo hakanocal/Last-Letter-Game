@@ -217,10 +217,13 @@ function findWord() {
             $("#info").fadeOut(1); 
             $("#info").fadeIn(1); 
             document.getElementById('info').innerHTML = "Bu kelime önceden yazıldı";
+            
             /* Eğer girilen kelime zaten daha önceden yazıldıysa listede o kelimeyi kırmızı ile göster*/
             var alan		=	document.getElementById("insertedWordList").children;
             for(var baslangic = 0; baslangic<alan.length; baslangic++){
                 if (alan[baslangic].innerText == finded){
+                    document.getElementById(alan[baslangic].id).scrollIntoView();
+                    // document.getElementById(alan[baslangic].id).scrollIntoView({behavior: 'smooth'});
                     alan[baslangic].style.backgroundColor = "#b1000d";
                     alan[baslangic].style.color = "white";
                     styledWord = alan[baslangic];
@@ -236,10 +239,12 @@ function findWord() {
         /* son kelimeye ulaş */
         lastLetterIdCounter +=1;
         var str = document.getElementById("insertedWordList").lastElementChild.innerText; 
-        var txt2 = "<span style='background-color:red; color:white;' id='lastLetterIdCounter-" + lastLetterIdCounter + "'>" + str.slice(-1) + "</span>" ;
+        var txt2 = "<span style='background-color:#b1000d; color:white;' id='lastLetterIdCounter-" + lastLetterIdCounter + "'>" + str.slice(-1) + "</span>" ;
         var txt3 = str.slice(0, str.length-1);
         document.getElementById("insertedWordList").lastElementChild.innerHTML = txt3 + txt2;
         infoTimer();
+        var scrollList = document.getElementById("insertedWordList");
+        scrollList.scrollTop = scrollList.scrollHeight;
     }
 }
 // BUTONLARIN GENİŞLİĞİNİ EN UZUN OLANA GÖRE AYARLA
