@@ -103,8 +103,9 @@ function readTextFile(file)
     }
     rawFile.send(null);
 }
-readTextFile("test.txt");
+readTextFile("allWords.txt");
 // BAŞLANGIÇTA REASTGELE KELİME İLE OYUNA BAŞLA
+var idCounter = 0;
 function insWorddefaultStyle(){
     document.getElementById('insWord').style.color = "black";
 }
@@ -120,8 +121,15 @@ var insertedWordList;
 function bodyOnLoad(){
     var randomWordIndexForPageLoad	=	Math.round(Math.random()*(wordArray.length-1));
     var randomWordForPageLoad = wordArray[randomWordIndexForPageLoad];
-    document.getElementById('insertedWordList').innerHTML += randomWordForPageLoad + "\n"; 
-    insertedWordList = document.getElementById('insertedWordList').innerHTML.trim();
+
+    idCounter+=1;
+    var createSpanElement	=	document.createElement("DIV");	
+    createSpanElement.setAttribute("id", idCounter);
+    var kelimeOlustur	=	document.createTextNode(randomWordForPageLoad);	
+    createSpanElement.appendChild(kelimeOlustur);				
+    document.getElementById("insertedWordList").appendChild(createSpanElement);
+
+    insertedWordList = document.getElementById('insertedWordList').innerText.trim();
     var n = insertedWordList.split("\n");
     for(var x in n){   
         insertedWordListArray.push((n[x].trim()));
@@ -142,22 +150,27 @@ function stopInfoTimer() {
 // GİRİLEN KELİMEYİ ARA
 var finded; 
 var lastLetter;
+var styledWord;
+
 function findWord() {
+    if (styledWord != undefined){
+        styledWord.style.backgroundColor = "initial";
+        styledWord.style.color = "rgb(84, 84, 84)";
+    }
     document.getElementById("hint").blur();
     document.getElementById("sendWord").blur();
 	finded = document.getElementById('insWord').value
     /* Son kelime ve son karakteri*/
     insertedWordListArray = [];
-    insertedWordList = document.getElementById('insertedWordList').innerHTML.trim();
+    insertedWordList = document.getElementById('insertedWordList').innerText.trim();
     var n = insertedWordList.split("\n");
     for(var x in n){   
         insertedWordListArray.push((n[x].trim()));
     }
     var lastWord = insertedWordListArray[insertedWordListArray.length - 1]
     var lastLetter = lastWord[lastWord.length-1]
-    
+
     var firstLetter = finded[0]
-    
     if (lastLetter == firstLetter){
         function func_listedeara(eleman, sira, referans){
             return eleman == finded;
@@ -170,7 +183,13 @@ function findWord() {
             }
             var word		=	wordArray.find(func_kelimeListesindeAra);
             if (finded == word){
-                document.getElementById('insertedWordList').innerHTML += finded + "\n";
+                idCounter +=1;
+                var createSpanElement	=	document.createElement("DIV");	
+                createSpanElement.setAttribute("id", idCounter);
+                var kelimeOlustur	=	document.createTextNode(finded);	
+                createSpanElement.appendChild(kelimeOlustur);				
+                document.getElementById("insertedWordList").appendChild(createSpanElement);
+
                 document.getElementById('insWord').value = "";
                 var scrollList = document.getElementById("insertedWordList");
                 scrollList.scrollTop = scrollList.scrollHeight;
@@ -191,10 +210,19 @@ function findWord() {
         }
         else{
             $("#info").stop();
-                $("#info").fadeOut(1); 
-                $("#info").fadeIn(1); 
-                document.getElementById('info').innerHTML = "Bu kelime önceden yazıldı";
-                infoTimer();
+            $("#info").fadeOut(1); 
+            $("#info").fadeIn(1); 
+            document.getElementById('info').innerHTML = "Bu kelime önceden yazıldı";
+            /* Eğer girilen kelime zaten daha önceden yazıldıysa listede o kelimeyi kırmızı ile göster*/
+            var alan		=	document.getElementById("insertedWordList").children;
+            for(var baslangic = 0; baslangic<alan.length; baslangic++){
+                if (alan[baslangic].innerText == finded){
+                    alan[baslangic].style.backgroundColor = "#b1000d";
+                    alan[baslangic].style.color = "white";
+                    styledWord = alan[baslangic];
+                }					
+            }
+            infoTimer();
         }
     }
     else{
@@ -217,6 +245,7 @@ function findWord() {
     }
 // YENİDEN BAŞLAT
 function resetGame(){
+    idCounter = 0;
     document.getElementById("hint").disabled = false;
     document.getElementById("sendWord").disabled = false;
     document.getElementById("insWord").disabled = false;
@@ -245,7 +274,7 @@ function hint(){
     document.getElementById("sendWord").blur();
     /* son kelime ve karakteri */
     insertedWordListArray = [];
-    insertedWordList = document.getElementById('insertedWordList').innerHTML.trim();
+    insertedWordList = document.getElementById('insertedWordList').innerText.trim();
     var n = insertedWordList.split("\n");
     for(var x in n){   
         insertedWordListArray.push((n[x].trim()));

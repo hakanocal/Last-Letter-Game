@@ -114,6 +114,15 @@ html{
         height: calc(300px - 10px);
         resize:none;
         padding: 5px;
+        margin-bottom: 5px;
+        border-radius: 3px;
+
+        color: rgb(84, 84, 84);
+        cursor: default;
+        background-color: rgba(239, 239, 239, 0.3);
+        border:1px solid rgba(118, 118, 118, 0.3);
+        font-family: monospace;
+        overflow: scroll;
     }
 .score{
     float:left;
