@@ -355,3 +355,8 @@ function hint(){
         }
     }
 }
+
+// Nasıl oynanır?
+$("#rightSideTitle").click(function(){
+    $("#howToPlay").slideToggle("fast");
+});

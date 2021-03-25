@@ -51,10 +51,20 @@ html{
 }
 #right-side{
     width: calc(50% - 20px);
-    background-color: blue;
     float:left;
     padding:10px;
-
+}
+#rightSideTitle{
+    background-color: rgb(84, 84, 84);
+    cursor: pointer;
+    padding: 10px;
+    width: calcl(100% - 20px);
+    font-weight: bold;
+    font-size: 16px;
+    color: rgb(213, 213, 213);
+}
+#howToPlay{
+    border: 1px solid rgb(84, 84, 84);
 }
 #insWord{
     text-align:right;
