@@ -19,12 +19,7 @@ html{
     color:white;
     background: rgb(84, 84, 84);
 }
-#howToPlay img{
-    -webkit-user-select: none; 
-    -ms-user-select: none; 
-    user-select: none;
-    -webkit-user-drag: none;
-}
+
 
 #loader { 
     border: 10px solid #f3f3f3; 
@@ -62,13 +57,18 @@ html{
 
 
 #left-side{
-    width: calc(50% - 20px);
-    float:left;
+    width: calc(70% - 20px);
+    float:right;
     padding:10px;
 }
+#leftSideInside{
+    width: 555px;
+    height: 500px;
+    margin-left:50px;
+}
 #right-side{
-    width: calc(50% - 20px);
-    float:left;
+    width: calc(30% - 20px);
+    float:right;
     padding:10px;
 }
 #rightSideTitle-wrapper{
@@ -82,6 +82,17 @@ html{
 }
 #howToPlay{
     border: 1px solid rgb(84, 84, 84);
+    margin: 0 auto;
+    text-align: center;
+    cursor: not-allowed;
+}
+#howToPlay img{
+    -webkit-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none;
+    -webkit-user-drag: none;
+    height: 265px;
+    margin-top: 20px;
 }
 #insWord{
     text-align:right;
