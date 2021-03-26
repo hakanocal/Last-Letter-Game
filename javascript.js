@@ -483,7 +483,7 @@ function setCookie(cookieName,cookieValue,exdays) {
   
 function checkCookie() {
     var isVisited = getCookie("isVisited");
-    if (!isVisited) {
+    if (isVisited) {
         alert("Welcome again");
     } 
     else {
