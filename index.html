@@ -19,6 +19,14 @@
     <div id="wrapper-loader">
         <div id="loader" class="center"></div> 
     </div>
+    <div id="header">
+        <div id="leftHeader"></div>
+        <div id="centerHeader">LAST LETTER GAME</div>
+        <div id="rightHeader">
+            <span id="langEnglish" onclick="langEN()">English</span>
+            <span id="langTurkce"  onclick="langTR()">Türkçe</span>
+        </div>
+    </div>
     <div id="left-side">
         <div class="textarea-score">
             <div class="textarea">
@@ -57,7 +65,7 @@
     </div>
     <div id="right-side">
         <!--  &darr; -->
-        <div id="rightSideTitle">Nasıl oynanır? 
+        <div id="rightSideTitle-wrapper"><span id="howToPlayTitle">Nasıl oynanır? </span> 
             <i id="slideIcon" class="material-icons" style="font-size:24px;float:right; position:relative; top:-3px;">arrow_drop_up</i>
         </div>
         <div id="howToPlay">
@@ -65,8 +73,6 @@
         </div>
         
     </div>
-
-
 
     <!-- JAVASCRIPT -->
     <script type="text/javascript" src="javascript.js"></script>

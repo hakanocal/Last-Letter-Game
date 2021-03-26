@@ -1,3 +1,6 @@
+
+
+
 //SAYFANIN YÜKLENME DURUMUNA GÖRE ANİMASYON GÖSTER
 document.onreadystatechange = function() { 
     if (document.readyState !== "complete") { 
@@ -53,14 +56,14 @@ function timerCycle() {
             if (min < 10 || min == 0) {
                 min = '0' + min;
             }
-            timer.innerHTML = "Geçen süre: " + min + ':' + sec;
+            timer.innerHTML = passingTime + ": " + min + ':' + sec;
             setTimeout("timerCycle()", 1000);
         }
   }
 }
 
 function resetTimer() {
-    timer.innerHTML = "Geçen süre: " +"00:00";
+    timer.innerHTML = passingTime + ": " + "00:00";
     stoptime = true;
     sec = 0;
     min = 0;
@@ -116,7 +119,7 @@ document.getElementById('help').innerHTML = "İpucu: " + hintCount;
 document.getElementById('remainingHintCount').innerHTML = remainingHintCount;
 document.getElementById('hint').disabled = false;
 document.getElementById("hint").style.cursor = "pointer";
-document.getElementById('stopwatch').innerHTML = "Geçen süre: 00:00"
+document.getElementById('stopwatch').innerHTML = passingTime + ": " + "00:00";
 insertedWordListArray = [];
 var insertedWordList;
 function bodyOnLoad(){
@@ -135,7 +138,7 @@ function bodyOnLoad(){
     for(var x in n){   
         insertedWordListArray.push((n[x].trim()));
     }
-    document.getElementById('score').innerHTML = "Skor: " + (insertedWordListArray.length-1);
+    document.getElementById('score').innerHTML = score + ": " + (insertedWordListArray.length-1);
 }
 //info fadeout timer
 // var var_infoTimer;
@@ -152,7 +155,7 @@ function bodyOnLoad(){
 var finded; 
 var lastLetter;
 var styledWord;
-
+var insertedWordListArray;
 function findWord() {
     if (lastLetterIdCounter != 0){
         document.getElementById('lastLetterIdCounter-'+lastLetterIdCounter).removeAttribute('style');
@@ -198,7 +201,7 @@ function findWord() {
                 var scrollList = document.getElementById("insertedWordList");
                 scrollList.scrollTop = scrollList.scrollHeight;
                 // insertedWordList.scrollTo(0,document.querySelector("#insertedWordList").scrollHeight);
-                document.getElementById('score').innerHTML = "Skor: " + (insertedWordListArray.length);
+                document.getElementById('score').innerHTML = score + ": " + (insertedWordListArray.length);
                 if (stoptime == true){
                     startTimer();
                 }
@@ -375,7 +378,7 @@ else{
 }
   
 
-$("#rightSideTitle").click(function(){
+$("#rightSideTitle-wrapper").click(function(){
     if($("#howToPlay").is(":hidden"))
     {
         document.getElementById('slideIcon').innerText = "arrow_drop_up";
@@ -386,3 +389,70 @@ $("#rightSideTitle").click(function(){
         $("#howToPlay").slideUp("fast");
     }
 });
+// DİL
+document.documentElement.lang = navigator.language;
+var userLang = navigator.language || navigator.userLanguage; 
+
+var send;
+var hints;
+var restart;
+var passingTime;
+var score;
+var howtoplay;
+
+function langEN(){
+    document.getElementById('langTurkce').style.border = "1px solid transparent";
+    document.getElementById('langEnglish').style.border = "1px solid black";
+    document.documentElement.lang = "en-US";
+
+    send = "Send";
+    hints = "Hint";
+    restart = "Restart Game";
+    passingTime = "Passing Time";
+    score = "Score";
+    howToPlay = "How to play?";
+
+    document.getElementById('sendWord').value = send + " " + "(Enter)";
+    document.getElementById('hint').value = hints + " " + "(Space)";
+    document.getElementById('reset').value = restart;
+    if (min == 0 && sec == 0){
+        document.getElementById('stopwatch').innerHTML = passingTime + ": " + "00:00";      
+    }
+    else{
+        document.getElementById('stopwatch').innerHTML = timer.innerHTML = passingTime + ": " + min + ':' + sec;
+    }
+    document.getElementById('score').innerHTML = score + ": " + insertedWordListArray.length;
+    document.getElementById('howToPlayTitle').innerHTML = howToPlay;
+}
+
+function langTR(){
+    document.getElementById('langTurkce').style.border = "1px solid black";
+    document.getElementById('langEnglish').style.border = "1px solid transparent";
+    document.documentElement.lang = "tr";
+
+    send = "Gönder";
+    hints = "İpucu";
+    restart = "Yeniden Başlat";
+    passingTime = "Geçen süre";
+    score = "Skor";
+    howToPlay = "Nasıl oynanır?";
+
+    document.getElementById('sendWord').value = send + " " + "(Enter)";
+    document.getElementById('hint').value = hints + " " + "(Space)";
+    document.getElementById('reset').value = restart;
+    if (min == 0 && sec == 0){
+        document.getElementById('stopwatch').innerHTML = passingTime + ": " + "00:00";      
+    }
+    else{
+        document.getElementById('stopwatch').innerHTML = timer.innerHTML = passingTime + ": " + min + ':' + sec;
+    }
+    document.getElementById('score').innerHTML = score + ": " + insertedWordListArray.length;
+    document.getElementById('howToPlayTitle').innerHTML = howToPlay;
+
+}
+if (userLang == "tr-TR" || userLang == "tr"){
+    langTR();
+}
+else{
+    langEN();
+}
