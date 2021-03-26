@@ -495,7 +495,7 @@ function checkCookie() {
     }
 
     var selectedLang = getCookie("selectedLang");
-    if (selectedLang != undefined){
+    if (selectedLang != ""){
         if (selectedLang == "TR"){
             langTR();
         }
