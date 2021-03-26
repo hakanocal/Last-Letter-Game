@@ -404,6 +404,7 @@ var score;
 var howtoplay;
 
 function langEN(){
+    document.getElementById("howToPlayImg").src = "images/howtoplayEN.gif";
     document.getElementById('langTurkce').style.border = "1px solid transparent";
     document.getElementById('langEnglish').style.border = "1px solid black";
     document.documentElement.lang = "en-US";
@@ -425,11 +426,12 @@ function langEN(){
     else{
         document.getElementById('stopwatch').innerHTML = timer.innerHTML = passingTime + ": " + min + ':' + sec;
     }
-    document.getElementById('score').innerHTML = score + ": " + insertedWordListArray.length;
+    document.getElementById('score').innerHTML = score + ": " + (insertedWordListArray.length-1);
     document.getElementById('howToPlayTitle').innerHTML = howToPlay;
 }
 
 function langTR(){
+    document.getElementById("howToPlayImg").src = "images/howtoplayTR.gif";
     document.getElementById('langTurkce').style.border = "1px solid black";
     document.getElementById('langEnglish').style.border = "1px solid transparent";
     document.documentElement.lang = "tr";
@@ -452,7 +454,7 @@ function langTR(){
     else{
         document.getElementById('stopwatch').innerHTML = timer.innerHTML = passingTime + ": " + min + ':' + sec;
     }
-    document.getElementById('score').innerHTML = score + ": " + insertedWordListArray.length;
+    document.getElementById('score').innerHTML = score + ": " + (insertedWordListArray.length-1);
     document.getElementById('howToPlayTitle').innerHTML = howToPlay;
 
 }
