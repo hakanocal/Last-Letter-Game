@@ -19,9 +19,12 @@ html{
     color:white;
     background: rgb(84, 84, 84);
 }
-
-
-
+#howToPlay img{
+    -webkit-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none;
+    -webkit-user-drag: none;
+}
 
 #loader { 
     border: 10px solid #f3f3f3; 
