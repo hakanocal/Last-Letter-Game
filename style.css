@@ -10,6 +10,19 @@ html{
 #insertedWordList { overflow: -moz-scrollbars-none; }
 #insertedWordList { -ms-overflow-style: none; }
 
+::-moz-selection { /* Code for Firefox */
+    background: rgb(84, 84, 84);
+    color:white;
+}
+  
+::selection {
+    color:white;
+    background: rgb(84, 84, 84);
+}
+
+
+
+
 #loader { 
     border: 10px solid #f3f3f3; 
     border-radius: 50%; 
