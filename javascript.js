@@ -389,8 +389,11 @@ $("#rightSideTitle-wrapper").click(function(){
         $("#howToPlay").slideUp("fast");
     }
 });
+
+
+
 // DİL
-document.documentElement.lang = navigator.language;
+// document.documentElement.lang = navigator.language;
 var userLang = navigator.language || navigator.userLanguage; 
 
 var send;
@@ -404,6 +407,7 @@ function langEN(){
     document.getElementById('langTurkce').style.border = "1px solid transparent";
     document.getElementById('langEnglish').style.border = "1px solid black";
     document.documentElement.lang = "en-US";
+    setCookie("selectedLang", "EN", 30);
 
     send = "Send";
     hints = "Hint";
@@ -429,6 +433,8 @@ function langTR(){
     document.getElementById('langTurkce').style.border = "1px solid black";
     document.getElementById('langEnglish').style.border = "1px solid transparent";
     document.documentElement.lang = "tr";
+    setCookie("selectedLang", "TR", 30);
+
 
     send = "Gönder";
     hints = "İpucu";
@@ -450,12 +456,7 @@ function langTR(){
     document.getElementById('howToPlayTitle').innerHTML = howToPlay;
 
 }
-if (userLang == "tr-TR" || userLang == "tr"){
-    langTR();
-}
-else{
-    langEN();
-}
+
 
 // COOKIE
 function setCookie(cookieName,cookieValue,exdays) {
@@ -484,9 +485,28 @@ function setCookie(cookieName,cookieValue,exdays) {
 function checkCookie() {
     var isVisited = getCookie("isVisited");
     if (isVisited) {
-        alert("Welcome again");
+        $("#howToPlay").slideUp(1);
+        document.getElementById('slideIcon').innerText = "arrow_drop_down";
     } 
     else {
         setCookie("isVisited", true, 30);
+    }
+
+    var selectedLang = getCookie("selectedLang");
+    if (selectedLang != undefined){
+        if (selectedLang == "TR"){
+            langTR();
+        }
+        else{
+            langEN();
+        }
+    }
+    else{
+        if (userLang == "tr-TR" || userLang == "tr"){
+            langTR();
+        }
+        else{
+            langEN();
+        }
     }
 }
