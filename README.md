@@ -1,8 +1,8 @@
 # Last Letter Game
 
 #### Demo: https://lastletter.netlify.app 
-- Başlangıçta rastgele verilen bir kelimenin son harfiyle yeni kelimeler türetmeye çalışın!
-- Sadece 5 kez yardım alma hakkınız var.
-- Süre tutarak kendinize meydan okuyun.
+- Try to derive new words with the last letter of a random word given at the beginning!
+- You only have 5 times to help
+- Challenge yourself by keeping time.
 
-![Last Letter Game Oyun görüntüsü](/images/play.gif)
+![Last Letter Game Oyun görüntüsü](/images/howtoplayEN.gif)
