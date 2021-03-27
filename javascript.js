@@ -84,6 +84,12 @@ document.body.onkeyup = function(e){
         document.getElementById("hint").blur();
     }
 }
+window.onkeydown = function(e) {
+    if(e.keyCode == 32 && e.target == document.body) {
+        e.preventDefault();
+        return false;
+    }
+};
 //DOSYADA BULUNAN KELİMELERİ LİSTEYE AKTAR
 var wordArray = []
 function readTextFile(file)
@@ -225,7 +231,7 @@ function findWord() {
             var alan		=	document.getElementById("insertedWordList").children;
             for(var baslangic = 0; baslangic<alan.length; baslangic++){
                 if (alan[baslangic].innerText == finded){
-                    document.getElementById(alan[baslangic].id).scrollIntoView();
+                    document.getElementById(alan[baslangic].id).scrollIntoView({ block: 'nearest', inline: 'start' });
                     // document.getElementById(alan[baslangic].id).scrollIntoView({behavior: 'smooth'});
                     alan[baslangic].style.backgroundColor = "#b1000d";
                     alan[baslangic].style.color = "white";

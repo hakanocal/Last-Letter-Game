@@ -56,19 +56,24 @@ html{
 /* - - - - - - - - - */
 
 
+#container{
+    width: 550px;
+    height: 700px;
+    margin: 0 auto;
+}
+
 #left-side{
-    width: calc(70% - 20px);
-    float:right;
+    width: calc(100% - 20px);
+    float:left;
     padding:10px;
 }
 #leftSideInside{
     width: 555px;
     height: 500px;
-    margin-left:50px;
 }
 #right-side{
-    width: calc(30% - 20px);
-    float:right;
+    width: calc(100% - 20px);
+    float:left;
     padding:10px;
 }
 #rightSideTitle-wrapper{

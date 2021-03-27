@@ -19,6 +19,7 @@
     <div id="wrapper-loader">
         <div id="loader" class="center"></div> 
     </div>
+
     <div id="header">
         <div id="leftHeader"></div>
         <div id="centerHeader">LAST LETTER GAME</div>
@@ -27,54 +28,59 @@
             <span id="langTurkce"  onclick="langTR()">Türkçe</span>
         </div>
     </div>
-    <div id="left-side">
-        <div id="leftSideInside">
-            <div class="textarea-score">
-                <div class="textarea">
-                    <!-- Girilen kelimeler listesi -->
-                    <div name="textarea" id="insertedWordList" disabled></div>
-                </div>
     
-                <div class="score-wrapper">
-                    <div class="score">
-                        <div id="stopwatch"></div> 
-                        <div id="help" style="display: none;"></div>    
-                        <div id="score"></div>  
+    <div id="container">
+        <div id="left-side">
+            <div id="leftSideInside">
+                <div class="textarea-score">
+                    <div class="textarea">
+                        <!-- Girilen kelimeler listesi -->
+                        <div name="textarea" id="insertedWordList" disabled></div>
                     </div>
-                </div>
-            </div>
-            <div class="insword-buttons">
-                <div class="insWord">
-                    <!-- Metin giriniz -->
-                    <input id="insWord" oninput="insWorddefaultStyle()" type="text" maxlength="45" spellcheck="false" autocomplete="off"> 
-                    <div id="info"></div>
-                </div>
-    
-                <div class="buttons">
-                    <!-- Gönder butonu -->
-                    <div><input id="sendWord" type="button" value="Gönder (Enter)" onclick="findWord()" class="button"></div>
-                    <!-- İpucu butonu -->
-                    <div><input id="hint" type="button" value="İpucu (Space)" onclick="hint()" class="button">
-                        <span id="remainingHintCountWrapper">
-                            <span id="remainingHintCount"></span>
-                        </span>
-                    </div>
-                    <!-- Yeniden Başlat butonu -->
-                    <div><input id="reset" type="button" value="Yeniden Başlat" onclick="resetGame()" class="button"></div>
-                </div>
-            </div> 
-        </div>
-    </div>
-    <div id="right-side">
-        <!--  &darr; -->
-        <div id="rightSideTitle-wrapper"><span id="howToPlayTitle">Nasıl oynanır? </span> 
-            <i id="slideIcon" class="material-icons" style="font-size:24px;float:right; position:relative; top:-3px;">arrow_drop_up</i>
-        </div>
-        <div id="howToPlay">
-            <img id="howToPlayImg" src="images/howtoplayTR.gif" alt="last letter game nasıl oynanır?">
-        </div>
         
+                    <div class="score-wrapper">
+                        <div class="score">
+                            <div id="stopwatch"></div> 
+                            <div id="help" style="display: none;"></div>    
+                            <div id="score"></div>  
+                        </div>
+                    </div>
+                </div>
+                <div class="insword-buttons">
+                    <div class="insWord">
+                        <!-- Metin giriniz -->
+                        <input id="insWord" oninput="insWorddefaultStyle()" type="text" maxlength="45" spellcheck="false" autocomplete="off"> 
+                        <div id="info"></div>
+                    </div>
+        
+                    <div class="buttons">
+                        <!-- Gönder butonu -->
+                        <div><input id="sendWord" type="button" value="Gönder (Enter)" onclick="findWord()" class="button"></div>
+                        <!-- İpucu butonu -->
+                        <div><input id="hint" type="button" value="İpucu (Space)" onclick="hint()" class="button">
+                            <span id="remainingHintCountWrapper">
+                                <span id="remainingHintCount"></span>
+                            </span>
+                        </div>
+                        <!-- Yeniden Başlat butonu -->
+                        <div><input id="reset" type="button" value="Yeniden Başlat" onclick="resetGame()" class="button"></div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+        <div id="right-side">
+            <!--  &darr; -->
+            <div id="rightSideTitle-wrapper"><span id="howToPlayTitle">Nasıl oynanır? </span> 
+                <i id="slideIcon" class="material-icons" style="font-size:24px;float:right; position:relative; top:-3px;">arrow_drop_up</i>
+            </div>
+            <div id="howToPlay">
+                <img id="howToPlayImg" src="images/howtoplayTR.gif" alt="last letter game nasıl oynanır?">
+            </div>
+            
+        </div>
     </div>
+
+    
 
     <!-- JAVASCRIPT -->
     <script type="text/javascript" src="javascript.js"></script>
