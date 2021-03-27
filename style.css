@@ -239,10 +239,16 @@ margin-bottom: 20px;
 
 }
 #leftHeader{
+    display: none;
     float:left;
-    /* background-color: yellow;
+    height: calc(100% - 20px);
     padding: 10px;
-    height: calc(100% - 20px); */
+    padding-top: 5px;
+    width: 200px;
+    text-align: center;
+    font-family: 'Nerko One', cursive;	
+    font-size: 22px;    
+    color:white;
 }
 #centerHeader{
     float:left;
@@ -278,3 +284,75 @@ margin-bottom: 20px;
 }
 
 
+/* - - - - - - - - - - - - - - */
+
+@media only screen and (max-width:575px){ 					/* XS */
+    #container{
+        width: 325px;
+        margin:0 auto;
+    }
+    #leftSideInside{
+        width: 310px;
+        height: 500px;
+    }
+
+	#centerHeader{
+        display: none;
+	}
+    #leftHeader{
+        display: block;
+    }
+    #insWord{
+        width: 300px;
+        clear: both;
+    }
+    #insertedWordList{
+        width: 295px;
+    }
+
+
+    .buttons{
+        clear: both;
+    }
+    .buttons div{
+        display: inline;
+        width: 50px;
+    }
+    .buttons div + div span {
+        display:none !important; 
+    }
+    #sendWord{
+        display: inline-block;
+        float: right;
+    }
+    #hint{
+        display: inline-block;
+
+    }
+    #reset{
+        display: inline-block;
+        float: left;
+
+    }
+
+    .score-wrapper{
+        clear: left;
+        height: 25px;
+        width:305px;
+        position: relative;
+    }
+    .score{
+        width: 100%;
+        margin-left: 0px;
+    }
+    #stopwatch{
+        float:left;
+    }
+    #score{
+        float:right;
+    }
+    
+    #insertedWordList{
+        height: calc(200px - 10px);
+    }
+}
