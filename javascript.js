@@ -114,6 +114,7 @@ function readTextFile(file)
 }
 readTextFile("allWords.txt");
 // BAŞLANGIÇTA REASTGELE KELİME İLE OYUNA BAŞLA
+var howToPlayState = "alwaysOpen"; /* alwaysOpen dışındaki bir değer girilirse slide aktif olur ve aç/kapat yapılabilir */
 var idCounter = 0;
 var lastLetterIdCounter = 0;
 function insWorddefaultStyle(){
@@ -367,37 +368,41 @@ function hint(){
 
 
 // Nasıl oynanır?
-if (document.getElementById('slideIcon').innerText == "arrow_drop_up"){
-    $("#howToPlay").slideDown(1);
-}
-else{
-    $("#howToPlay").slideUp(1);
-}
-
-
-if($("#howToPlay").is(":hidden"))
-{
-    document.getElementById('slideIcon').innerText = "arrow_drop_down";
-}
-else{
-    document.getElementById('slideIcon').innerText = "arrow_drop_up";
-}
-  
-
-$("#rightSideTitle-wrapper").click(function(){
-    if($("#howToPlay").is(":hidden"))
-    {
-        document.getElementById('slideIcon').innerText = "arrow_drop_up";
-        $("#howToPlay").slideDown("fast");
+if (howToPlayState != "alwaysOpen"){
+    if (document.getElementById('slideIcon').innerText == "arrow_drop_up"){
+        $("#howToPlay").slideDown(1);
     }
     else{
-        document.getElementById('slideIcon').innerText = "arrow_drop_down";
-        $("#howToPlay").slideUp("fast");
+        $("#howToPlay").slideUp(1);
     }
-});
+    
+    
+    if($("#howToPlay").is(":hidden"))
+    {
+        document.getElementById('slideIcon').innerText = "arrow_drop_down";
+    }
+    else{
+        document.getElementById('slideIcon').innerText = "arrow_drop_up";
+    }
 
 
+    $("#rightSideTitle-wrapper").click(function(){
+        if($("#howToPlay").is(":hidden"))
+        {
+            document.getElementById('slideIcon').innerText = "arrow_drop_up";
+            $("#howToPlay").slideDown("fast");
+        }
+        else{
+            document.getElementById('slideIcon').innerText = "arrow_drop_down";
+            $("#howToPlay").slideUp("fast");
+        }
+    });
+}
+else{
+    document.getElementById('slideIcon').innerText = "";
+}
 
+  
 // DİL
 // document.documentElement.lang = navigator.language;
 var userLang = navigator.language || navigator.userLanguage; 
@@ -493,8 +498,13 @@ function setCookie(cookieName,cookieValue,exdays) {
 function checkCookie() {
     var isVisited = getCookie("isVisited");
     if (isVisited) {
-        $("#howToPlay").slideUp(1);
-        document.getElementById('slideIcon').innerText = "arrow_drop_down";
+        if (howToPlayState != "alwaysOpen"){
+            $("#howToPlay").slideUp(1);
+            document.getElementById('slideIcon').innerText = "arrow_drop_down";
+        }
+        else{
+            document.getElementById('slideIcon').innerText = "";
+        }
     } 
     else {
         setCookie("isVisited", true, 30);
