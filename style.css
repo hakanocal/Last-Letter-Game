@@ -58,7 +58,7 @@ html{
 
 #container{
     width: 550px;
-    height: 700px;
+    height: 1100px;
     margin: 0 auto;
 }
 
@@ -68,11 +68,11 @@ html{
     padding:10px;
 }
 #leftSideInside{
-    width: 555px;
+    width: 530px;
     height: 500px;
 }
 #right-side{
-    width: calc(90% - 20px);
+    width: calc(100% - 20px);
     float:left;
     padding:10px;
 }
@@ -182,7 +182,7 @@ html{
 .score-wrapper{
     float:left;
     height: 300px;
-    width:200px;
+    width:175px;
     position: relative;
 }
 .score{
