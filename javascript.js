@@ -114,6 +114,7 @@ function readTextFile(file)
 }
 readTextFile("allWords.txt");
 // BAŞLANGIÇTA REASTGELE KELİME İLE OYUNA BAŞLA
+
 var howToPlayState = "alwaysOpen"; /* alwaysOpen dışındaki bir değer girilirse slide aktif olur ve aç/kapat yapılabilir */
 var idCounter = 0;
 var lastLetterIdCounter = 0;
@@ -130,6 +131,7 @@ document.getElementById('stopwatch').innerHTML = passingTime + ": " + "00:00";
 insertedWordListArray = [];
 var insertedWordList;
 function bodyOnLoad(){
+    document.getElementById("insWord").focus();
     var randomWordIndexForPageLoad	=	Math.round(Math.random()*(wordArray.length-1));
     var randomWordForPageLoad = wordArray[randomWordIndexForPageLoad];
 
@@ -164,6 +166,7 @@ var lastLetter;
 var styledWord;
 var insertedWordListArray;
 function findWord() {
+    document.getElementById("insWord").focus();
     if (lastLetterIdCounter != 0){
         document.getElementById('lastLetterIdCounter-'+lastLetterIdCounter).removeAttribute('style');
     }
@@ -270,6 +273,7 @@ function findWord() {
     }
 // YENİDEN BAŞLAT
 function resetGame(){
+    document.getElementById("insWord").focus();
     idCounter = 0;
     document.getElementById("hint").disabled = false;
     document.getElementById("sendWord").disabled = false;
@@ -295,6 +299,7 @@ function resetGame(){
 
 // İPUCU BUTONU
 function hint(){
+    document.getElementById("insWord").focus();
     document.getElementById("hint").blur();
     document.getElementById("sendWord").blur();
     /* son kelime ve karakteri */
