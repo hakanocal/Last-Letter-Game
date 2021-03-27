@@ -300,7 +300,13 @@ margin-bottom: 20px;
         display: none;
 	}
     #leftHeader{
-        display: block;
+        display: inline-block;
+        height: calc(100% - 20px);
+        padding: 10px;
+        padding-top: 7px;
+        width: 150px;
+        font-size: 18px;    
+        color:white;
     }
     #insWord{
         width: 300px;
