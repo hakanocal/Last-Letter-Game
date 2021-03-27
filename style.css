@@ -312,6 +312,9 @@ margin-bottom: 20px;
         width: 300px;
         clear: both;
     }
+    #insWord:focus{
+        width: 300px;
+    }
     #insertedWordList{
         width: 295px;
     }
