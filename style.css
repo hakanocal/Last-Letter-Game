@@ -63,10 +63,11 @@ html{
     width: calc(100% - 20px);
     float:left;
     padding:10px;
+    
 }
 #leftSideInside{
     width: 530px;
-    height: calc(100vh - 130px);
+    height: calc(100vh - 129px);
 }
 #right-side{
     width: calc(100% - 20px);
