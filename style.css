@@ -286,12 +286,15 @@ margin-bottom: 20px;
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 @media only screen and (max-width:575px){ 					/* XS */
+    #header{
+        margin-bottom: 10px;
+    }
     #container{
-        width: 325px;
+        width: calc(100vw - 30px);
         margin:0 auto;
     }
     #leftSideInside{
-        width: 310px;
+        width: calc(100vw - 50px);
         height: 500px;
     }
 
@@ -308,30 +311,34 @@ margin-bottom: 20px;
         color:white;
     }
     #insWord{
-        width: 300px;
+        width: calc(100vw - 60px);
         clear: both;
+
+
     }
     #insWord:focus{
-        width: 300px;
-    }
-    #insertedWordList{
-        width: 295px;
-    }
+        width: calc(100vw - 60px);
 
+    }
 
     .buttons{
         clear: both;
+        width: calc(100vw - 55px);
+
     }
     .buttons div{
         display: inline;
-        width: 50px;
+        /* width: 50px; */
+
     }
+    
     .buttons div + div span {
         display:none !important; 
     }
     #sendWord{
         display: inline-block;
         float: right;
+
     }
     #hint{
         display: inline-block;
@@ -348,10 +355,15 @@ margin-bottom: 20px;
         height: 25px;
         width:305px;
         position: relative;
+        width: calc(100vw - 55px);
+        max-width: calc(100vw - 55px);
+
     }
     .score{
-        width: 100%;
+        width: calc(100vw - 55px);
+        max-width: calc(100vw - 55px);
         margin-left: 0px;
+        
     }
     #stopwatch{
         float:left;
@@ -361,7 +373,8 @@ margin-bottom: 20px;
     }
     
     #insertedWordList{
-        height: calc(200px - 10px);
+        height: calc(50vh - 10px);
+        width: calc(100vw - 65px);
     }
 }
 
