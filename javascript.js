@@ -176,7 +176,7 @@ function findWord() {
     }
     document.getElementById("hint").blur();
     document.getElementById("sendWord").blur();
-	finded = document.getElementById('insWord').value.toLowerCase();
+	finded = document.getElementById('insWord').value.toLowerCase().trim();
     /* Son kelime ve son karakteri*/
     insertedWordListArray = [];
     insertedWordList = document.getElementById('insertedWordList').innerText.trim();
