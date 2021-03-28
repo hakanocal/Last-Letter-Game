@@ -324,16 +324,41 @@ margin-bottom: 20px;
     .buttons{
         clear: both;
         width: calc(100vw - 55px);
-
+        height: 35px;
     }
     .buttons div{
         display: inline;
         /* width: 50px; */
 
     }
-    
+    #remainingHintCountWrapper {
+        display: inline-block;
+        background-color: gray;
+        width:20px;
+        height:20px;
+        position:relative;
+        border-radius:50%;
+        overflow:hidden;
+        left:-25px;
+        top:5px;
+    }
+    #remainingHintCount{
+        display: inline-block;
+        position:absolute;
+        top: calc(50% - 7px);
+        left: calc(50% - 4px);
+        color:white;
+        font-weight:bold;
+        font-size: small;
+    }
+    input#reset.button{
+        margin-top: 4px;
+    }
+    input#sendWord.button{
+        margin-top: 4px;
+    }
     .buttons div + div span {
-        display:none !important; 
+        /* display:none !important;  */
     }
     #sendWord{
         display: inline-block;
