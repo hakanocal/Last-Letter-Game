@@ -112,7 +112,7 @@ function readTextFile(file)
     }
     rawFile.send(null);
 }
-readTextFile("allWords.txt");
+readTextFile("test.txt");
 // BAŞLANGIÇTA REASTGELE KELİME İLE OYUNA BAŞLA
 
 var howToPlayState = "alwaysOpen"; /* alwaysOpen dışındaki bir değer girilirse slide aktif olur ve aç/kapat yapılabilir */
@@ -166,7 +166,7 @@ var lastLetter;
 var styledWord;
 var insertedWordListArray;
 function findWord() {
-    document.getElementById("insWord").focus();
+     document.getElementById("insWord").focus();
     if (lastLetterIdCounter != 0){
         document.getElementById('lastLetterIdCounter-'+lastLetterIdCounter).removeAttribute('style');
     }
@@ -212,9 +212,87 @@ function findWord() {
                 scrollList.scrollTop = scrollList.scrollHeight;
                 // insertedWordList.scrollTo(0,document.querySelector("#insertedWordList").scrollHeight);
                 document.getElementById('score').innerHTML = score + ": " + (insertedWordListArray.length);
+
+                function giveMeRandomWord(){
+                    /* SON HARFLE BAŞLAYAN KELİME KALMADIYSA RASTGELE YENİ KELİME VER */
+                    var insertedWordListArray = [];
+                    var insertedWordList = document.getElementById('insertedWordList').innerText.trim();
+                    var n = insertedWordList.split("\n");
+                    for(var x in n){   
+                        insertedWordListArray.push((n[x].trim()));
+                    }
+                    var lastWord = insertedWordListArray[insertedWordListArray.length - 1];
+                    var lastLetter = lastWord[lastWord.length-1];
+
+                    var withoutInsertedWord = [];
+                    var isEqual = false;
+                    for (var i = 0; i < wordArray.length; i++){
+                        for (var j = 0; j < insertedWordListArray.length; j++){
+                            if (wordArray[i] == insertedWordListArray[j]){
+                                isEqual = true;
+                            }
+                            else{
+                                if (!isEqual){
+                                    isEqual = false;
+                                }
+                            }
+                        }
+                        if (!isEqual){
+                                withoutInsertedWord.push(wordArray[i]);
+                        }
+                        var isEqual = false;
+                    }
+
+
+                    var firstLetter = lastLetter;
+                    var startWithFirstLetterList = [];
+                    for(var x in withoutInsertedWord){ 
+                        var perArrayItem = withoutInsertedWord[x].trim();
+                        var isStartingWithFirstLetter = perArrayItem.startsWith(firstLetter);
+                        if (isStartingWithFirstLetter == true){
+                            startWithFirstLetterList.push(perArrayItem);
+                        }
+                    }
+                    if (startWithFirstLetterList.length == 0){
+                        // $("#info").fadeOut(1); 
+                        // $("#info").fadeIn(1); 
+                        var randomWordIndexForPageLoad	=	Math.round(Math.random()*(withoutInsertedWord.length-1));
+                        var randomWordForPageLoad = withoutInsertedWord[randomWordIndexForPageLoad];
+                        if (randomWordForPageLoad != undefined){
+                            idCounter+=1;
+                            var createSpanElement	=	document.createElement("DIV");	
+                            createSpanElement.setAttribute("id", idCounter);
+                            var kelimeOlustur	=	document.createTextNode(randomWordForPageLoad);	
+                            createSpanElement.appendChild(kelimeOlustur);				
+                            document.getElementById("insertedWordList").appendChild(createSpanElement);
+
+                            var alan		=	document.getElementById("insertedWordList").children;
+                            for(var baslangic = 0; baslangic<alan.length; baslangic++){
+                                if (alan[baslangic].innerText == randomWordForPageLoad){
+                                    alan[baslangic].style.color = "green";
+                                    styledWord = alan[baslangic];
+                                }					
+                            }
+                            giveMeRandomWord();
+
+                        }
+                        else{
+                            document.getElementById('insWord').value = pleaseRestartGame;
+                            document.getElementById('insWord').disabled = true;
+                        }
+                    }
+                }
+                giveMeRandomWord();
+                
+
+
+
                 if (stoptime == true){
                     startTimer();
                 }
+
+                
+                
             }
             else {
                 // $("#info").stop();
@@ -273,6 +351,8 @@ function findWord() {
     }
 // YENİDEN BAŞLAT
 function resetGame(){
+    document.getElementById('insWord').disabled = false;
+    lastLetterIdCounter = 0;
     document.getElementById("insWord").focus();
     idCounter = 0;
     document.getElementById("hint").disabled = false;
@@ -299,6 +379,11 @@ function resetGame(){
 
 // İPUCU BUTONU
 function hint(){
+    if (styledWord != undefined){
+        styledWord.style.backgroundColor = "initial";
+        styledWord.style.color = "rgb(84, 84, 84)";
+
+    }
     document.getElementById("insWord").focus();
     document.getElementById("hint").blur();
     document.getElementById("sendWord").blur();
@@ -343,7 +428,31 @@ function hint(){
     if (startWithFirstLetterList.length == 0){
         // $("#info").fadeOut(1); 
         // $("#info").fadeIn(1); 
-        document.getElementById('info').innerHTML = "\"" + lastLetter + "\"" + " İLE BAŞLAYAN KELİME KALMADI";
+        var randomWordIndexForPageLoad	=	Math.round(Math.random()*(withoutInsertedWord.length-1));
+        var randomWordForPageLoad = withoutInsertedWord[randomWordIndexForPageLoad];
+        if (randomWordForPageLoad != undefined){
+            idCounter+=1;
+            var createSpanElement	=	document.createElement("DIV");	
+            createSpanElement.setAttribute("id", idCounter);
+            var kelimeOlustur	=	document.createTextNode(randomWordForPageLoad);	
+            createSpanElement.appendChild(kelimeOlustur);				
+            document.getElementById("insertedWordList").appendChild(createSpanElement);
+
+            var alan		=	document.getElementById("insertedWordList").children;
+            for(var baslangic = 0; baslangic<alan.length; baslangic++){
+                if (alan[baslangic].innerText == randomWordForPageLoad){
+                    alan[baslangic].style.color = "green";
+                    styledWord = alan[baslangic];
+                }					
+            }
+            
+        }
+        else{
+            document.getElementById('insWord').value = pleaseRestartGame;
+            document.getElementById('insWord').disabled = true;
+            
+        }
+        
         // infoTimer();
     }
     else{
@@ -426,12 +535,15 @@ function langEN(){
     document.documentElement.lang = "en-US";
     setCookie("selectedLang", "EN", 30);
 
+    /* WORDS */
     send = "Send";
     hints = "Hint";
     restart = "Restart Game";
     passingTime = "Passing Time";
     score = "Score";
     howToPlay = "How to play?";
+    pleaseRestartGame = "No words left. Please restart the game";
+    /* - - - */
 
     document.getElementById('sendWord').value = send + " " + "(Enter)";
     document.getElementById('hint').value = hints + " " + "(Space)";
@@ -453,13 +565,15 @@ function langTR(){
     document.documentElement.lang = "tr";
     setCookie("selectedLang", "TR", 30);
 
-
+    /* WORDS */
     send = "Gönder";
     hints = "İpucu";
     restart = "Yeniden Başlat";
     passingTime = "Geçen süre";
     score = "Skor";
     howToPlay = "Nasıl oynanır?";
+    pleaseRestartGame = "Kelime kalmadı. Lütfen oyunu yeniden başlat";
+    /* - - - */
 
     document.getElementById('sendWord').value = send + " " + "(Enter)";
     document.getElementById('hint').value = hints + " " + "(Space)";
