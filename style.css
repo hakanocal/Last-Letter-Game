@@ -56,7 +56,6 @@ html{
 
 #container{
     width: 550px;
-    height: 1100px;
     margin: 0 auto;
 }
 
@@ -67,7 +66,7 @@ html{
 }
 #leftSideInside{
     width: 530px;
-    height: 500px;
+    height: calc(100vh - 130px);
 }
 #right-side{
     width: calc(100% - 20px);
