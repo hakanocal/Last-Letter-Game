@@ -112,7 +112,7 @@ function readTextFile(file)
     }
     rawFile.send(null);
 }
-readTextFile("test.txt");
+readTextFile("allWords.txt");
 // BAŞLANGIÇTA REASTGELE KELİME İLE OYUNA BAŞLA
 
 var howToPlayState = "alwaysOpen"; /* alwaysOpen dışındaki bir değer girilirse slide aktif olur ve aç/kapat yapılabilir */
