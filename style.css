@@ -291,7 +291,6 @@ margin-bottom: 20px;
     }
     #container{
         width: calc(100vw - 20px);
-        height: 1500px;
         margin:0 auto;
     }
     #leftSideInside{
@@ -301,17 +300,19 @@ margin-bottom: 20px;
     }
 
 	#centerHeader{
-        display: none;
+        float:left;
+        height: calc(100% - 15px);
+        margin:0 auto;
+        padding: 5px;
+        padding-top: 8px;
+        width: 140px;
+        text-align: center;
+        position: absolute;
+        left: 0;
+        font-family: 'Nerko One', cursive;	
+        font-size: 18px;  
 	}
-    #leftHeader{
-        display: inline-block;
-        height: calc(100% - 20px);
-        padding: 10px;
-        padding-top: 7px;
-        width: 150px;
-        font-size: 18px;    
-        color:white;
-    }
+    
     #insWord{
         width: calc(100vw - 40px);
         clear: both;
@@ -326,10 +327,9 @@ margin-bottom: 20px;
 
     .buttons{
         clear: both;
-        width: calc(100vw - 30px);
+        width: calc(100vw - 27px);
         height: 35px;
-        margin-left: -3px;
-
+        margin-left: -5px;
     }
     .buttons div{
         display: inline;
@@ -358,15 +358,20 @@ margin-bottom: 20px;
     input#reset.button{
         margin-top: 4px;
         width: auto !important;
+        font-size: small;
 
     }
     input#sendWord.button{
         margin-top: 4px;
         width: auto !important;
+        font-size: small;
+
     }
     input#hint.button{
         margin-top: 4px;
         width: auto !important;
+        font-size: small;
+
     }
     .buttons div + div span {
         /* display:none !important;  */
