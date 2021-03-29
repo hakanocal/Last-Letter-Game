@@ -290,15 +290,14 @@ margin-bottom: 20px;
         margin-bottom: 10px;
     }
     #container{
-        width: calc(100vw - 0px);
+        width: calc(100vw - 20px);
         height: 1500px;
         margin:0 auto;
-
     }
     #leftSideInside{
-        width: calc(100vw - 20px);
+        width: calc(100vw - 30px);
         height: 500px;
-
+        margin-left: -5px;
     }
 
 	#centerHeader{
@@ -314,19 +313,20 @@ margin-bottom: 20px;
         color:white;
     }
     #insWord{
-        width: calc(100vw - 30px);
+        width: calc(100vw - 40px);
         clear: both;
+
 
 
     }
     #insWord:focus{
-        width: calc(100vw - 30px);
+        width: calc(100vw - 40px);
 
     }
 
     .buttons{
         clear: both;
-        width: calc(100vw - 20px);
+        width: calc(100vw - 30px);
         height: 35px;
         margin-left: -3px;
 
@@ -389,15 +389,15 @@ margin-bottom: 20px;
         height: 25px;
         width:305px;
         position: relative;
-        width: calc(100vw - 25px);
-        max-width: calc(100vw - 25px);
+        width: calc(100vw - 35px);
+        max-width: calc(100vw - 35px);
 
 
 
     }
     .score{
-        width: calc(100vw - 25px);
-        max-width: calc(100vw - 25px);
+        width: calc(100vw - 35px);
+        max-width: calc(100vw - 35px);
         margin-left: 0px;
 
 
@@ -411,7 +411,7 @@ margin-bottom: 20px;
     
     #insertedWordList{
         height: calc(50vh - 10px);
-        width: calc(100vw - 35px);
+        width: calc(100vw - 45px);
 
 
 
