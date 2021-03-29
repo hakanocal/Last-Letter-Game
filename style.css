@@ -343,8 +343,8 @@ margin-bottom: 20px;
         position:relative;
         border-radius:50%;
         overflow:hidden;
-        left:-25px;
-        top:5px;
+        left:-10px;
+        top:0px;
     }
     #remainingHintCount{
         display: inline-block;
@@ -357,12 +357,20 @@ margin-bottom: 20px;
     }
     input#reset.button{
         margin-top: 4px;
+        width: auto !important;
+
     }
     input#sendWord.button{
         margin-top: 4px;
+        width: auto !important;
+    }
+    input#hint.button{
+        margin-top: 4px;
+        width: auto !important;
     }
     .buttons div + div span {
         /* display:none !important;  */
+        
     }
     #sendWord{
         display: inline-block;
