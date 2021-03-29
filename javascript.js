@@ -115,7 +115,7 @@ function readTextFile(file)
 readTextFile("allWords.txt");
 // BAŞLANGIÇTA REASTGELE KELİME İLE OYUNA BAŞLA
 
-var howToPlayState = "ss"; /* alwaysOpen dışındaki bir değer girilirse slide aktif olur ve aç/kapat yapılabilir */
+var howToPlayState = "alwaysOpen"; /* alwaysOpen dışındaki bir değer girilirse slide aktif olur ve aç/kapat yapılabilir */
 var idCounter = 0;
 var lastLetterIdCounter = 0;
 function insWorddefaultStyle(){
