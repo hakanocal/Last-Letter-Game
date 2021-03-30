@@ -112,7 +112,13 @@ function readTextFile(file)
     }
     rawFile.send(null);
 }
-readTextFile("allWords.txt");
+    /* mobil cihazlarda performansı artırmak için daha az kelimenin bulunduğu bir dosyayı okuyorum*/
+if (window.innerWidth <= 768){
+    readTextFile("3000word.txt");
+}
+else{
+    readTextFile("allWords.txt");
+}
 // BAŞLANGIÇTA REASTGELE KELİME İLE OYUNA BAŞLA
 
 var howToPlayState = "alwaysOpen"; /* alwaysOpen dışındaki bir değer girilirse slide aktif olur ve aç/kapat yapılabilir */
