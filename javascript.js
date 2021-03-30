@@ -527,6 +527,7 @@ var restart;
 var passingTime;
 var score;
 var howtoplay;
+var confirmPageReload;
 
 function langEN(){
     document.getElementById("howToPlayImg").src = "images/howtoplayEN.gif";
@@ -543,6 +544,7 @@ function langEN(){
     score = "Score";
     howToPlay = "How to play?";
     pleaseRestartGame = "No words left. Please restart the game";
+    confirmPageReload = "Are you sure you want to leave this page? The changes you made will be lost";
     /* - - - */
 
     document.getElementById('sendWord').value = send + " " + "(Enter)";
@@ -573,6 +575,7 @@ function langTR(){
     score = "Skor";
     howToPlay = "Nasıl oynanır?";
     pleaseRestartGame = "Kelime kalmadı. Lütfen oyunu yeniden başlat";
+    confirmPageReload = "Yapmış olduğunuz değişiklikler kaybolabilir. Yine de sayfadan ayrılmak istediğinize emin misiniz?";
     /* - - - */
 
     document.getElementById('sendWord').value = send + " " + "(Enter)";
@@ -647,3 +650,15 @@ function checkCookie() {
         }
     }
 }
+
+function refreshPage(){
+    location.reload();
+}
+window.onbeforeunload = function(e) {
+    if (insertedWordListArray.length <=5){
+        
+    }
+    else{
+        return 0;   /* alertbox'ın çıkabilmesi için herhangi bir değeri geri döndürdük */
+    }
+};
