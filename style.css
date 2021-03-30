@@ -44,6 +44,7 @@ html{
     margin: auto; 
 } 
 #wrapper-loader{
+    z-index: 11;
     position: absolute;
     top: 0px;
     left: 0px;
@@ -235,7 +236,7 @@ height: 40px;
 background-color: #1473e6;
 margin: 0 auto;
 margin-bottom: 20px;
-
+z-index: 10;
 }
 #leftHeader{
     display: none;
