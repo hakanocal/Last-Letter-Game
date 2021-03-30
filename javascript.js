@@ -194,113 +194,103 @@ function findWord() {
         }
         var sonuc		=	insertedWordListArray.find(func_listedeara);
         if (sonuc != finded){
-
-            function func_kelimeListesindeAra(eleman, sira, referans){
-                return eleman == finded;
+            function scanStartedWithLastLetter(item){
+                return item[0] == lastLetter;
             }
-            var word		=	wordArray.find(func_kelimeListesindeAra);
-            if (finded == word){
-                idCounter +=1;
-                var createSpanElement	=	document.createElement("DIV");	
-                createSpanElement.setAttribute("id", idCounter);
-                var kelimeOlustur	=	document.createTextNode(finded);	
-                createSpanElement.appendChild(kelimeOlustur);				
-                document.getElementById("insertedWordList").appendChild(createSpanElement);
+            var startingWithLastLetters		=	wordArray.filter(scanStartedWithLastLetter);
+            for (var i = 0; i < startingWithLastLetters.length; i++){
+                if (finded == startingWithLastLetters[i]){
+                    idCounter +=1;
+                    var createSpanElement	=	document.createElement("DIV");	
+                    createSpanElement.setAttribute("id", idCounter);
+                    var kelimeOlustur	=	document.createTextNode(finded);	
+                    createSpanElement.appendChild(kelimeOlustur);				
+                    document.getElementById("insertedWordList").appendChild(createSpanElement);
 
-                document.getElementById('insWord').value = "";
-                var scrollList = document.getElementById("insertedWordList");
-                scrollList.scrollTop = scrollList.scrollHeight;
-                // insertedWordList.scrollTo(0,document.querySelector("#insertedWordList").scrollHeight);
-                document.getElementById('score').innerHTML = score + ": " + (insertedWordListArray.length);
+                    document.getElementById('insWord').value = "";
+                    var scrollList = document.getElementById("insertedWordList");
+                    scrollList.scrollTop = scrollList.scrollHeight;
+                    // insertedWordList.scrollTo(0,document.querySelector("#insertedWordList").scrollHeight);
+                    document.getElementById('score').innerHTML = score + ": " + (insertedWordListArray.length);
 
-                function giveMeRandomWord(){
-                    /* SON HARFLE BAŞLAYAN KELİME KALMADIYSA RASTGELE YENİ KELİME VER */
-                    var insertedWordListArray = [];
-                    var insertedWordList = document.getElementById('insertedWordList').innerText.trim();
-                    var n = insertedWordList.split("\n");
-                    for(var x in n){   
-                        insertedWordListArray.push((n[x].trim()));
-                    }
-                    var lastWord = insertedWordListArray[insertedWordListArray.length - 1];
-                    var lastLetter = lastWord[lastWord.length-1];
+                    function giveMeRandomWord(){
+                        /* SON HARFLE BAŞLAYAN KELİME KALMADIYSA RASTGELE YENİ KELİME VER */
+                        var insertedWordListArray = [];
+                        var insertedWordList = document.getElementById('insertedWordList').innerText.trim();
+                        var n = insertedWordList.split("\n");
+                        for(var x in n){   
+                            insertedWordListArray.push((n[x].trim()));
+                        }
+                        var lastWord = insertedWordListArray[insertedWordListArray.length - 1];
+                        var lastLetter = lastWord[lastWord.length-1];
 
-                    var withoutInsertedWord = [];
-                    var isEqual = false;
-                    for (var i = 0; i < wordArray.length; i++){
-                        for (var j = 0; j < insertedWordListArray.length; j++){
-                            if (wordArray[i] == insertedWordListArray[j]){
-                                isEqual = true;
-                            }
-                            else{
-                                if (!isEqual){
-                                    isEqual = false;
+                        var withoutInsertedWord = [];
+                        var isEqual = false;
+                        for (var i = 0; i < wordArray.length; i++){
+                            for (var j = 0; j < insertedWordListArray.length; j++){
+                                if (wordArray[i] == insertedWordListArray[j]){
+                                    isEqual = true;
+                                }
+                                else{
+                                    if (!isEqual){
+                                        isEqual = false;
+                                    }
                                 }
                             }
-                        }
-                        if (!isEqual){
-                                withoutInsertedWord.push(wordArray[i]);
-                        }
-                        var isEqual = false;
-                    }
-
-
-                    var firstLetter = lastLetter;
-                    var startWithFirstLetterList = [];
-                    for(var x in withoutInsertedWord){ 
-                        var perArrayItem = withoutInsertedWord[x].trim();
-                        var isStartingWithFirstLetter = perArrayItem.startsWith(firstLetter);
-                        if (isStartingWithFirstLetter == true){
-                            startWithFirstLetterList.push(perArrayItem);
-                        }
-                    }
-                    if (startWithFirstLetterList.length == 0){
-                        // $("#info").fadeOut(1); 
-                        // $("#info").fadeIn(1); 
-                        var randomWordIndexForPageLoad	=	Math.round(Math.random()*(withoutInsertedWord.length-1));
-                        var randomWordForPageLoad = withoutInsertedWord[randomWordIndexForPageLoad];
-                        if (randomWordForPageLoad != undefined){
-                            idCounter+=1;
-                            var createSpanElement	=	document.createElement("DIV");	
-                            createSpanElement.setAttribute("id", idCounter);
-                            var kelimeOlustur	=	document.createTextNode(randomWordForPageLoad);	
-                            createSpanElement.appendChild(kelimeOlustur);				
-                            document.getElementById("insertedWordList").appendChild(createSpanElement);
-
-                            var alan		=	document.getElementById("insertedWordList").children;
-                            for(var baslangic = 0; baslangic<alan.length; baslangic++){
-                                if (alan[baslangic].innerText == randomWordForPageLoad){
-                                    alan[baslangic].style.color = "green";
-                                    styledWord = alan[baslangic];
-                                }					
+                            if (!isEqual){
+                                    withoutInsertedWord.push(wordArray[i]);
                             }
-                            giveMeRandomWord();
-
+                            var isEqual = false;
                         }
-                        else{
-                            document.getElementById('insWord').value = pleaseRestartGame;
-                            document.getElementById('insWord').disabled = true;
+
+
+                        var firstLetter = lastLetter;
+                        var startWithFirstLetterList = [];
+                        for(var x in withoutInsertedWord){ 
+                            var perArrayItem = withoutInsertedWord[x].trim();
+                            var isStartingWithFirstLetter = perArrayItem.startsWith(firstLetter);
+                            if (isStartingWithFirstLetter == true){
+                                startWithFirstLetterList.push(perArrayItem);
+                            }
+                        }
+                        if (startWithFirstLetterList.length == 0){
+                            // $("#info").fadeOut(1); 
+                            // $("#info").fadeIn(1); 
+                            var randomWordIndexForPageLoad	=	Math.round(Math.random()*(withoutInsertedWord.length-1));
+                            var randomWordForPageLoad = withoutInsertedWord[randomWordIndexForPageLoad];
+                            if (randomWordForPageLoad != undefined){
+                                idCounter+=1;
+                                var createSpanElement	=	document.createElement("DIV");	
+                                createSpanElement.setAttribute("id", idCounter);
+                                var kelimeOlustur	=	document.createTextNode(randomWordForPageLoad);	
+                                createSpanElement.appendChild(kelimeOlustur);				
+                                document.getElementById("insertedWordList").appendChild(createSpanElement);
+
+                                var alan		=	document.getElementById("insertedWordList").children;
+                                for(var baslangic = 0; baslangic<alan.length; baslangic++){
+                                    if (alan[baslangic].innerText == randomWordForPageLoad){
+                                        alan[baslangic].style.color = "green";
+                                        styledWord = alan[baslangic];
+                                    }					
+                                }
+                                giveMeRandomWord();
+
+                            }
+                            else{
+                                document.getElementById('insWord').value = pleaseRestartGame;
+                                document.getElementById('insWord').disabled = true;
+                            }
                         }
                     }
+                    giveMeRandomWord();
+                    if (stoptime == true){
+                        startTimer();
+                    }
+                    break;
                 }
-                giveMeRandomWord();
-                
-
-
-
-                if (stoptime == true){
-                    startTimer();
+                else{
+                     document.getElementById('insWord').style.color = "#b1000d";
                 }
-
-                
-                
-            }
-            else {
-                // $("#info").stop();
-                // $("#info").fadeOut(1); 
-                // $("#info").fadeIn(1); 
-                document.getElementById('insWord').style.color = "#b1000d";
-                // document.getElementById('info').innerHTML = "Böyle bir kelime yok";
-                // infoTimer();
             }
         }
         else{
