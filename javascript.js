@@ -166,7 +166,7 @@ var lastLetter;
 var styledWord;
 var insertedWordListArray;
 function findWord() {
-     document.getElementById("insWord").focus();
+    document.getElementById("insWord").focus();
     if (lastLetterIdCounter != 0){
         document.getElementById('lastLetterIdCounter-'+lastLetterIdCounter).removeAttribute('style');
     }
