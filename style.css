@@ -264,6 +264,10 @@ z-index: 10;
     font-size: 22px;    
     color:white;
     cursor: pointer;
+    -webkit-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none;
+    -webkit-user-drag: none;
 }
 #rightHeader{
     float:right;
@@ -300,7 +304,6 @@ z-index: 10;
         height: 500px;
         margin-left: -5px;
     }
-
 	#centerHeader{
         float:left;
         height: calc(100% - 15px);
@@ -314,19 +317,13 @@ z-index: 10;
         font-family: 'Nerko One', cursive;	
         font-size: 18px;  
 	}
-    
     #insWord{
         width: calc(100vw - 40px);
         clear: both;
-
-
-
     }
     #insWord:focus{
         width: calc(100vw - 40px);
-
     }
-
     .buttons{
         clear: both;
         width: calc(100vw - 27px);
@@ -340,44 +337,40 @@ z-index: 10;
     #remainingHintCountWrapper {
         display: inline-block;
         background-color: gray;
-        width:20px;
-        height:20px;
+        width:15px;
+        height:15px;
         position:relative;
         border-radius:50%;
         overflow:hidden;
         left:-10px;
-        top:0px;
+        top:-5px;
     }
     #remainingHintCount{
         display: inline-block;
         position:absolute;
-        top: calc(50% - 7px);
-        left: calc(50% - 4px);
+        top: calc(50% - 5px);
+        left: calc(50% - 3px);
         color:white;
         font-weight:bold;
-        font-size: small;
+        font-size:x-small;
     }
     input#reset.button{
         margin-top: 4px;
         width: auto !important;
         font-size: small;
-
     }
     input#sendWord.button{
         margin-top: 4px;
         width: auto !important;
         font-size: small;
-
     }
     input#hint.button{
         margin-top: 4px;
         width: auto !important;
         font-size: small;
-
     }
     .buttons div + div span {
         /* display:none !important;  */
-        
     }
     #sendWord{
         display: inline-block;
@@ -390,7 +383,6 @@ z-index: 10;
         display: inline-block;
         float: left;
     }
-
     .score-wrapper{
         clear: left;
         height: 25px;
@@ -398,16 +390,11 @@ z-index: 10;
         position: relative;
         width: calc(100vw - 35px);
         max-width: calc(100vw - 35px);
-
-
-
     }
     .score{
         width: calc(100vw - 35px);
         max-width: calc(100vw - 35px);
         margin-left: 0px;
-
-
     }
     #stopwatch{
         float:left;
@@ -419,9 +406,6 @@ z-index: 10;
     #insertedWordList{
         height: calc(50vh - 10px);
         width: calc(100vw - 45px);
-
-
-
     }
 }
 
