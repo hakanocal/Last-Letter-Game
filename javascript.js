@@ -192,13 +192,13 @@ function findWord() {
         function func_listedeara(eleman, sira, referans){
             return eleman == finded;
         }
-        var sonuc		=	insertedWordListArray.find(func_listedeara);
-        if (sonuc != finded){
+        var sonuc		=	insertedWordListArray.includes(finded);
+        if (sonuc != true){
             function func_kelimeListesindeAra(eleman, sira, referans){
                 return eleman == finded;
             }
-            var word		=	wordArray.find(func_kelimeListesindeAra);
-            if (finded == word){
+            var word		=	wordArray.includes(finded);
+            if (word){
                 idCounter +=1;
                 var createSpanElement	=	document.createElement("DIV");	
                 createSpanElement.setAttribute("id", idCounter);
