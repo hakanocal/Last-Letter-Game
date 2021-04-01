@@ -87,6 +87,7 @@ html{
 #howToPlay{
     border: 1px solid rgb(84, 84, 84);
     margin: 0 auto;
+    margin-bottom: 20px;
     text-align: center;
     cursor: not-allowed;
 }
@@ -348,7 +349,7 @@ z-index: 10;
     #remainingHintCount{
         display: inline-block;
         position:absolute;
-        top: calc(50% - 5px);
+        top: calc(50% - 6px);
         left: calc(50% - 3px);
         color:white;
         font-weight:bold;
