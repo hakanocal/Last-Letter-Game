@@ -5,7 +5,11 @@
 - You only have 5 times to help
 - Challenge yourself by keeping time.
 
-![Last Letter Game how to play gif](/images/howtoplayEN.gif)
+<kbd>
+  <img src="/images/howtoplayEN.gif">
+</kbd>
 
 ### Mobile devices are supported
-<img src="images/mobiledevice.jpg" height="640">
+<kbd>
+  <img src="images/mobiledevice.jpg" height="640">
+</kbd>
