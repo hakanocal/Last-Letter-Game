@@ -526,6 +526,7 @@ function langEN(){
     howToPlay = "How to play?";
     pleaseRestartGame = "No words left. Please restart the game";
     confirmPageReload = "Are you sure you want to leave this page? The changes you made will be lost";
+    howToPlayText = "• Try to derive new words with the last letter of a random word given at the beginning!<br>• You only have 5 times to help<br>• Challenge yourself by keeping time";
     /* - - - */
 
     document.getElementById('sendWord').value = send + " " + "(Enter)";
@@ -539,6 +540,7 @@ function langEN(){
     }
     document.getElementById('score').innerHTML = score + ": " + (insertedWordListArray.length-1);
     document.getElementById('howToPlayTitle').innerHTML = howToPlay;
+    document.getElementById('howToPlayText').innerHTML = howToPlayText;
 }
 
 function langTR(){
@@ -557,6 +559,7 @@ function langTR(){
     howToPlay = "Nasıl oynanır?";
     pleaseRestartGame = "Kelime kalmadı. Lütfen oyunu yeniden başlat";
     confirmPageReload = "Yapmış olduğunuz değişiklikler kaybolabilir. Yine de sayfadan ayrılmak istediğinize emin misiniz?";
+    howToPlayText = "• Başlangıçta rastgele verilen bir kelimenin son harfiyle yeni kelimeler türetmeye çalışın!<br>• Sadece 5 kez yardım alma hakkınız var.<br>• Zaman Tutarak kendinize meydan okuyun!";
     /* - - - */
 
     document.getElementById('sendWord').value = send + " " + "(Enter)";
@@ -570,7 +573,7 @@ function langTR(){
     }
     document.getElementById('score').innerHTML = score + ": " + (insertedWordListArray.length-1);
     document.getElementById('howToPlayTitle').innerHTML = howToPlay;
-
+    document.getElementById('howToPlayText').innerHTML = howToPlayText;
 }
 
 

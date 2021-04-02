@@ -98,8 +98,15 @@ html{
     -webkit-user-drag: none;
     height: 100%;
     width: 100%;
-    
 }
+#howToPlayText{
+    text-align: left;
+    margin: 5px;
+    font-size: 12px;
+    cursor:auto;
+    padding: 5px;
+}
+
 #insWord{
     text-align:right;
     width: 344px;
