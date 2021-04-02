@@ -368,6 +368,7 @@ function hint(){
         styledWord.style.color = "rgb(84, 84, 84)";
 
     }
+    insWorddefaultStyle();
     document.getElementById("insWord").focus();
     document.getElementById("hint").blur();
     document.getElementById("sendWord").blur();
