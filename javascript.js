@@ -112,7 +112,7 @@ function readTextFile(file)
     }
     rawFile.send(null);
 }
-readTextFile("allWords.txt");
+readTextFile("wordninja_words.txt");
 
 // BAŞLANGIÇTA REASTGELE KELİME İLE OYUNA BAŞLA
 var howToPlayState = "alwaysOpen"; /* alwaysOpen dışındaki bir değer girilirse slide aktif olur ve aç/kapat yapılabilir */
@@ -189,14 +189,8 @@ function findWord() {
 
     var firstLetter = finded[0]
     if (lastLetter == firstLetter){
-        function func_listedeara(eleman, sira, referans){
-            return eleman == finded;
-        }
         var sonuc		=	insertedWordListArray.includes(finded);
         if (sonuc != true){
-            function func_kelimeListesindeAra(eleman, sira, referans){
-                return eleman == finded;
-            }
             var word		=	wordArray.includes(finded);
             if (word){
                 idCounter +=1;
