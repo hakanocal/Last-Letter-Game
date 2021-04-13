@@ -9,7 +9,7 @@
   <img src="/images/howtoplayEN.gif">
 </kbd>
 
-### Mobile devices are supported
+### Responsive design
 <kbd>
   <img src="images/mobiledevice.jpg" height="640">
 </kbd>
