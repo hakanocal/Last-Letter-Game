@@ -8,8 +8,3 @@
 <kbd>
   <img src="/images/howtoplayEN.gif">
 </kbd>
-
-### Responsive design
-<kbd>
-  <img src="images/mobiledevice.jpg" height="640">
-</kbd>
